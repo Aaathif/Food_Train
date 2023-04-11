@@ -8,11 +8,13 @@ import Navbar from '../components/Navbar/Navbar'
 import ProductList from '../components/ProductList/ProductList'
 import Services from '../components/Service/Services'
 import Email from '../components/EmailFeed/EmailFeed/Email'
+import Asry from '../components/Shazu/Asry'
 
 
 function HomePage() {
   return (
     <div>
+      <Asry />
       <Navbar />
       <Hero />
       <Services />
