@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import css from './ListProduct.module.css'
+import { Link } from 'react-router-dom';
 // import P1 from '../Figma Pic/p1.png'
 
 function ProductSingle({productList}) {
@@ -31,7 +32,9 @@ function ProductSingle({productList}) {
                                     return <option value={size}>{size}</option>
                                 })}
                             </select>
-                            <div className={css.addToBtn}>Add</div>
+                            <Link to={`/singleProduct/${productList._id}`}>
+                                <div className={css.addToBtn}>Add</div>
+                            </Link>
                         </div>
                     </div>
                 </div>

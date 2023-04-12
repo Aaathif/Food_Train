@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/footer'
 import BannerPage from '../components/Banner2/Banner2/BannerPage'
 import SingleBlog from '../components/singleBlog/Components/Blog/SingleBlog'
 import { useParams } from 'react-router-dom'
 
 import datas from '../components/blogSection/Sub/SubDB'
-import Navbar from '../components/Navbar/Navbar'
+
 
 function SingleBlogPage() {
 
