@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 
 function SingleProduct() {
+
+    const [size, setSize] = useState("M")
+
     const {id} = useParams()
     // const [product, setProduct] = useState({});
 
@@ -33,12 +36,16 @@ function SingleProduct() {
             <div className={css.col2}>
                 <h6>{data.type}</h6>
                 <h3>{data.title}</h3>
-                <h2>Rs.200.00</h2>
-                <select name="" id="">
-                    <option value="">S</option>
-                    <option value="">M</option>
-                    <option value="">L</option>
-                </select>
+                <h2>Rs.200</h2>
+                {/* {data.prices.map(p=>{
+                    if(p.size === "M")
+                        return <h2>{p.price*3}</h2>
+                })} */}
+                {/* <select name="" id="" value={size} onChange={(e)=>{setSize(e.target.value)}}>
+                    {data.size.map(size => {
+                        return <option value={size}>{size}</option>
+                    })}
+                </select> */}
                 <input type="number" name="" id="" />
                 
                 <button>Add to cart</button>

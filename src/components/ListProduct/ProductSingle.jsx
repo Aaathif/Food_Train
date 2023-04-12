@@ -7,9 +7,9 @@ function ProductSingle({productList}) {
 
     const [size, setSize] = useState("S")
 
-    const newSize = productList.prices.map(item => {
-        return { size: item.size};
-    })
+    // const newSize = productList.prices.map(item => {
+    //     return { size: item.size};
+    // })
 
     const newPrice = productList.prices.map(item => {
         return { size: item.size, price: item.price };
@@ -32,7 +32,7 @@ function ProductSingle({productList}) {
                                     return <option value={size}>{size}</option>
                                 })}
                             </select>
-                            <Link to={`/singleProduct/${productList._id}`}>
+                            <Link to={{pathname:`/singleProduct/${productList._id}`, state:{size:size}}}>
                                 <div className={css.addToBtn}>Add</div>
                             </Link>
                         </div>
