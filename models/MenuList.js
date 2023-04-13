@@ -8,7 +8,7 @@ const MenuListSchema = new mongoose.Schema({
         required: true,
     },
     offerTag: {
-        type: String,
+        type: Number,
         required: true, 
     },
     title: {
