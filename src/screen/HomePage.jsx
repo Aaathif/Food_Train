@@ -14,7 +14,7 @@ import Asry from '../components/Shazu/Asry'
 function HomePage() {
   return (
     <div>
-      <Asry />
+      {/* <Asry /> */}
       <Navbar />
       <Hero />
       <Services />

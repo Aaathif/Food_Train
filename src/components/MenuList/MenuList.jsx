@@ -7,7 +7,7 @@ import MenuSingle from './MenuSingle';
 
 function MenuList() {
 
-    const { data, loading, error } = useFetch("http://localhost:8000/api/product");
+    const { data, loading, error } = useFetch("http://localhost:8000/api/menuList");
         console.log(data)
 
   return (
@@ -22,7 +22,7 @@ function MenuList() {
                     "Loading please wait"
                   ) : (
                 <>
-                {menuLists.map((menuList,index)=> {
+                {data.map((menuList,index)=> {
                     if(index < 6)
                         return <MenuSingle menuList={menuList}/>
                 })}
