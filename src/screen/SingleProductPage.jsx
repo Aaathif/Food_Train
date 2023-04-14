@@ -5,6 +5,7 @@ import BannerPage from '../components/Banner2/Banner2/BannerPage'
 import SingleProduct from '../components/SingleProduct/SingleProduct'
 import { useParams, useLocation } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
+import FeaturedService from '../components/FeaturedService/FeaturedService'
 
 
 
@@ -31,6 +32,7 @@ function SingleProductPage(props) {
       <Navbar />
       <BannerPage title={title} img={img}/>
       <SingleProduct/>
+      {/* <FeaturedService /> */}
       <Footer />
     </div>
   )

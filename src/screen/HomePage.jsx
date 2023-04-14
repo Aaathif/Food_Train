@@ -9,6 +9,7 @@ import ProductList from '../components/ProductList/ProductList'
 import Services from '../components/Service/Services'
 import Email from '../components/EmailFeed/EmailFeed/Email'
 import Asry from '../components/Shazu/Asry'
+import FeaturedService from '../components/FeaturedService/FeaturedService'
 
 
 function HomePage() {
@@ -17,6 +18,7 @@ function HomePage() {
       {/* <Asry /> */}
       <Navbar />
       <Hero />
+      <FeaturedService />
       <Services />
       <ProductList />
       <AdsPage />

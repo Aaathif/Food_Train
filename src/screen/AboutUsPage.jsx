@@ -3,6 +3,7 @@ import Footer from '../components/Footer/footer'
 import BannerPage from '../components/Banner2/Banner2/BannerPage'
 import Navbar from '../components/Navbar/Navbar'
 import KnowPage from '../components/Knowus/KnowPage'
+import FeaturedService from '../components/FeaturedService/FeaturedService'
 
 function AboutUsPage() {
 
@@ -14,6 +15,7 @@ function AboutUsPage() {
       <Navbar/>
       <BannerPage title={title} img={img}/>
       <KnowPage />
+      <FeaturedService />
       <Footer/>
       
     </div>

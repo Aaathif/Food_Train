@@ -6,6 +6,7 @@ import Email from '../components/EmailFeed/EmailFeed/Email'
 import MenuList from '../components/MenuList/MenuList'
 import BannerPage from '../components/Banner2/Banner2/BannerPage'
 import SubPage from '../components/blogSection/Sub/SubPage'
+import FeaturedService from '../components/FeaturedService/FeaturedService'
 
 
 function ProductPage() {
@@ -25,6 +26,7 @@ function ProductPage() {
       <ListProduct/>
       <Email />
       {/* <SubPage /> */}
+      {/* <FeaturedService /> */}
       <Footer />
     </div>
   )

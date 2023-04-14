@@ -8,6 +8,7 @@ import SingleBlogPage from './screen/SingleBlogPage';
 import ContactUsPage from './screen/ContactUsPage';
 import AboutUsPage from './screen/AboutUsPage';
 import SingleProductPage from './screen/SingleProductPage';
+import EventPage from './screen/EventPage';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path='/product' element={<ProductPage/>}/>
             <Route path='/blog' element={<BlogPage/>}/>
             <Route path='/singleBlog/:id' element={<SingleBlogPage/>}/>
+            <Route path='/event' element={<EventPage/>}/>
             <Route path='/contactUs' element={<ContactUsPage/>}/>
             <Route path='/aboutUs' element={<AboutUsPage/>}/>
             <Route path='/singleProduct/:id' element={<SingleProductPage/>}/>
