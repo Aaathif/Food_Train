@@ -1,6 +1,6 @@
 import express from 'express'
 import { createError } from '../utils/error.js';
-import { createBlog, deleteBlog, getBlog, getBlogs, updateBlog } from '../controllers/blog.js';
+import { createBlog, deleteBlog, getBlogs, getProduct, updateBlog } from '../controllers/blog.js';
 import { verifyAdmin } from '../utils/verifyToken.js';
 // import { login, register } from '../controllers/auth.js'
 
@@ -18,7 +18,7 @@ router.put("/:id", updateBlog)
 router.delete("/:id", deleteBlog)
 
 //GET
-router.get("/find/:id", getBlog)
+router.get("/find/:id", getProduct)
 
 //GET ALL
 router.get("/", getBlogs)

@@ -40,14 +40,14 @@ export const deleteBlog = async (req, res, next) => {
 }
 
 //GET Blog with ID
-export const getBlog = async (req, res, next) => { 
+export const getProduct = async (req, res, next) => { 
     try {
-        const Blog = await Blog.findById(
+        const product = await Blog.findById(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json(Blog)
+        res.status(200).json(product)
     } catch (err) {
         next(err)
     }
