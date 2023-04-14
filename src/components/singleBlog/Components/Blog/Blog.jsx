@@ -3,11 +3,15 @@ import css from './Blog.module.css'
 import { useParams } from 'react-router-dom'
 
 import datas from '../../../blogSection/Sub/SubDB'
+import useFetch from '../../../../hooks/useFetch'
 
 export default function Blog() {
   const {id} = useParams()
 
-  const data = datas.find((data)=> data.id == id)
+  const { data, loading, error } = useFetch(`http://localhost:8000/api/blog/find/${id}`);
+  console.log(data)
+
+  // const d = data.find((data)=> data._id == id)
 
   return (
     <div>

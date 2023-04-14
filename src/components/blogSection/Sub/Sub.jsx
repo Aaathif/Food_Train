@@ -17,7 +17,7 @@ function Sub({Data}) {
             {/* <p>{Data.TextP1}</p>
             <p>{Data.TextP3}</p> */}
           
-          <Link to={`/singleBlog/${Data.id}`}>
+          <Link to={`/singleBlog/${Data._id}`}>
             <button type="submit" 
             style={{ padding: '6px 16px', backgroundColor: '#67108F', color: '##C52726', border: '1px solid black', borderRadius: '20px 20px 20px 20px', 
             fontSize: '16px', cursor: 'pointer'}}>{Data.Btn}</button>
