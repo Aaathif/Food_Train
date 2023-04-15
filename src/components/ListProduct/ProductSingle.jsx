@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 function ProductSingle({productList}) {
 
     
-
-    const [size, setSize] = useState("L")
+        
+    const [size, setSize] = useState("S")
 
     // const newSize = productList.prices.map(item => {
     //     return { size: item.size};
