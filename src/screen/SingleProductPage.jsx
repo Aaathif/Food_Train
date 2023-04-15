@@ -28,7 +28,7 @@ function SingleProductPage(props) {
 
   return (
     <div>
-      {/* <p>{size}hello</p>  */}
+      {/* <p>{sizeValue}hello</p>  */}
       <Navbar />
       <BannerPage title={title} img={img}/>
       <SingleProduct/>

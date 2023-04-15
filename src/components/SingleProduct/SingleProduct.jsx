@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import css from './SingleProduct.module.css'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 
 function SingleProduct() {
 
-    const [size, setSize] = useState("M")
-
     const {id} = useParams()
-    // const [product, setProduct] = useState({});
+    
 
-    const { data, loading, error } = useFetch(`http://localhost:8000/api/product/find/${id}`);
+    const [qty, setQty] = useState(1)
+
+    const location = useLocation()
+    const size = location.state.size
+    const price = location.state.price
+    const priceQty = parseInt(price) * qty
+    console.log(size+"hello")
+
+    
+
+    console.log(location)
+    const ids = location.pathname.split("/")[2]
+
+    // const { data, loading, error } = useFetch(`http://localhost:8000/api/product/find/${id}`);
+    const { data, loading, error } = useFetch(`/product/find/${ids}`);
         console.log(data)
+        
 
-    // const mPrice = data.prices.filter((item) => item.size === "M")[0].price;
+        // const [product, setProduct] = useState({});
 
         // useEffect(() => {
         //     fetch(`http://localhost:8000/api/product/${id}`)
@@ -36,18 +49,10 @@ function SingleProduct() {
             <div className={css.col2}>
                 <h6>{data.type}</h6>
                 <h3>{data.title}</h3>
-                <h2>Rs.200</h2>
-                {/* {data.prices.map(p=>{
-                    if(p.size === "M")
-                        return <h2>{p.price*3}</h2>
-                })} */}
-                {/* <select name="" id="" value={size} onChange={(e)=>{setSize(e.target.value)}}>
-                    {data.size.map(size => {
-                        return <option value={size}>{size}</option>
-                    })}
-                </select> */}
-                <input type="number" name="" id="" />
-                
+                <h4>Size: {size}</h4>
+                <h3 style={{color: "gray"}}>Price: {price}</h3>
+                <h3>Totol Amount: {priceQty}</h3>
+                <input type="number" name="" id="" min={1} value={qty} onChange={(e)=>{setQty(e.target.value)}} />
                 <button>Add to cart</button>
                 <h4>{data.description}</h4>
                 <span>{data.description}!. Get the best Results for Resume Writers Denver. Find what you are looking for! 99% Match on Resume Writers Denver. Find Here - Free, Private and Secure. The Best Resources. Always Facts. Unlimited Access. Results & Answers. Privacy Friendly. Grammarly Helps You Eliminate Errors And Find The Perfect Words To Express Yourself. Find and Add Sources Fast. Fix Punctuation Errors. AI Writing Assistant. Eliminate Grammar Errors. Improve Word Choice. Easily Improve Any Text. </span>
