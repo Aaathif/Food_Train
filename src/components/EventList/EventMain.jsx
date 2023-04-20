@@ -1,12 +1,17 @@
 import React from 'react'
 import EventList from './EventList';
 import events from './EventDB';
+import useFetch from '../../hooks/useFetch';
 
 function EventMain() {
+
+  const { data, loading, error } = useFetch("http://localhost:8000/api/event");
+        console.log(data)
+
   return (
     <div>
       {
-        events.map((event,index)=>{
+        data.map((event,index)=>{
             return <div key={index}><EventList event={event}/></div>
         })
       }

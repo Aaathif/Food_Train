@@ -12,16 +12,16 @@ const EventList = ({ event }) => {
           <img
             style={{height: "350px", width: "300px"}}
             className={styles.productImage}
-            src={event.imageSrc}
+            src={event.photos}
             alt="Product Image"
           />
         </div>
         <div className={styles.productDetails}>
-          <h2 className={styles.productName}>{event.name}</h2>
+          <h2 className={styles.productName}>{event.title}</h2>
 
           <div className={styles.productPriceContainer}>
-            <button className={styles.productPrice}>{event.offerPercentage}</button>
-            <p className={styles.productOfferPrice}>{event.offerPrice}/=<span> Offer price</span></p>
+            <button className={styles.productPrice}>{event.offer}</button>
+            <p className={styles.productOfferPrice}>{event.prices}/=<span> Offer price</span></p>
 
             <p className={styles.productDescription}>
               {event.description}
