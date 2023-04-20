@@ -7,6 +7,7 @@ import usersRoute from "./routes/users.js";
 import productsRoute from "./routes/products.js";
 import MenuListsRoute from "./routes/menuLists.js";
 import BlogsRoute from "./routes/blogs.js";
+import EventsRoute from "./routes/events.js";
 
 
 import cookieParser from "cookie-parser";
@@ -52,6 +53,7 @@ app.use("/api/users", usersRoute);
 app.use("/api/product", productsRoute);
 app.use("/api/menuList", MenuListsRoute);
 app.use("/api/blog", BlogsRoute);
+app.use("/api/event", EventsRoute);
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500

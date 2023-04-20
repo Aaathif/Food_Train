@@ -13,7 +13,7 @@ router.post("/", createProduct)
 
 
 //UPDATE
-router.put("/:id", verifyAdmin, updateProduct)
+router.put("/:id",  updateProduct)
 
 //DELETE
 router.delete("/:id", verifyAdmin, deleteProduct)
