@@ -9,6 +9,7 @@ import ContactUsPage from './screen/ContactUsPage';
 import AboutUsPage from './screen/AboutUsPage';
 import SingleProductPage from './screen/SingleProductPage';
 import EventPage from './screen/EventPage';
+import LoginPage from './screen/LoginPage';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path='/contactUs' element={<ContactUsPage/>}/>
             <Route path='/aboutUs' element={<AboutUsPage/>}/>
             <Route path='/singleProduct/:id' element={<SingleProductPage/>}/>
+            <Route path='/login' element={<LoginPage/>}/>
         </Routes>
       </div>
     </Router>
