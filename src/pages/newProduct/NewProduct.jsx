@@ -9,13 +9,26 @@ import useFetch from "../../hooks/useFetch";
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
-  const [prices, setPrices] = useState([]);
-  const [sizes, setSizes] = useState([]);
 
-  const handleSizeChange = (event) => {
-    const { value } = event.target;
-    const newSizes = value.split(',');
-    setSizes(newSizes);
+  const [size, setSize] = useState("");
+
+  const [prices, setPrices] = useState([
+    { size: "", price: "" },
+    { size: "", price: "" },
+    { size: "", price: "" },
+  ]);
+
+  // const handleSizeChange = (event) => {
+  //   const { value } = event.target;
+  //   const newSizes = value.split(',');
+  //   setSizes(newSizes);
+  // };
+
+  const handlePriceChange = (index, event) => {
+    const { name, value } = event.target;
+    const newPrices = [...prices];
+    newPrices[index][name] = value;
+    setPrices(newPrices);
   };
 
   const { data, loading, error } = useFetch("/products");
@@ -24,18 +37,19 @@ const New = ({ inputs, title }) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleSelect = (e) => {
-    const value = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
-    setPrices(value);
-  };
+  // const handleSelect = (e) => {
+  //   const value = Array.from(
+  //     e.target.selectedOptions,
+  //     (option) => option.value
+  //   );
+  //   setPrices(value);
+  // };
 
   const handleClick = async (e) => {
     alert("Hello submitted")
     e.preventDefault();
     const data = new FormData();
+    const sizesArray = size.split(",").map((s) => s.trim());
     data.append("file", file);
     data.append("upload_preset", "upload");
     try {
@@ -48,8 +62,9 @@ const New = ({ inputs, title }) => {
 
       const newProduct = {
         ...info,
-        sizes,
-        photos: url, 
+        size: sizesArray,
+        photos: url,
+        prices,
       };
 
       await axios.post("http://localhost:8000/api/product", newProduct);
@@ -91,7 +106,7 @@ const New = ({ inputs, title }) => {
                   style={{ display: "none" }}
                 />
               </div>
-
+            {/* -------------------------------------------------- */}
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
@@ -103,32 +118,36 @@ const New = ({ inputs, title }) => {
                   />
                 </div>
               ))}
-{/* -------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------- */}
               <div className="formInput">
-                  <label htmlFor="size-input">Enter sizes:</label>
-                      <input
-                        id="size"
-                        type="text"
-                        value={sizes.join(',')}
-                        onChange={handleSizeChange}
-                    />
+                <label htmlFor="size">Size (separated by commas)</label>
+                <input
+                  type="text"
+                  id="size"
+                  value={size}
+                  onChange={(e) => setSize(e.target.value)}
+                />
               </div>
 
-{/* -------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------- */}
 
-              <div className="selectRooms">
-                <label>Prices</label>
-                <select id="prices" multiple onChange={handleSelect}>
-                  {loading
-                    ? "loading"
-                    : data &&
-                      data.map((room) => (
-                        <option key={room._id} value={room._id}>
-                          {room.prices}
-                        </option>
-                      ))}
-                </select>
-              </div>
+              {prices.map((price, index) => (
+                <div key={index}>
+                  <input
+                    type="text"
+                    name="size"
+                    value={price.size}
+                    onChange={(event) => handlePriceChange(index, event)}
+                  />
+                  <input
+                    type="number"
+                    name="price"
+                    value={price.price}
+                    onChange={(event) => handlePriceChange(index, event)}
+                  />
+                </div>
+              ))}
+
 
               <button onClick={handleClick}>Send</button>
             </form>
