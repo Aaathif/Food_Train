@@ -10,6 +10,7 @@ import AboutUsPage from './screen/AboutUsPage';
 import SingleProductPage from './screen/SingleProductPage';
 import EventPage from './screen/EventPage';
 import LoginPage from './screen/LoginPage';
+import RegisterPage from './screen/RegisterPage';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path='/aboutUs' element={<AboutUsPage/>}/>
             <Route path='/singleProduct/:id' element={<SingleProductPage/>}/>
             <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/register' element={<RegisterPage/>}/>
         </Routes>
       </div>
     </Router>
