@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Payment.module.css';
+import axios from "axios";
 
 function Payment() {
   const [paymentMethod, setPaymentMethod] = React.useState('visa');
@@ -8,6 +9,31 @@ function Payment() {
   const [expiryMonth, setExpiryMonth] = React.useState('');
   const [expiryYear, setExpiryYear] = React.useState('');
   const [cvv, setCvv] = React.useState('');
+
+  //to input to data base 
+  const [info, setInfo] = useState({})
+
+  const handleChange = (e) => {
+    setInfo((prev) => ({...prev, [e.target.id]: e.target.value}))
+  } 
+
+  const handleClick = async (e) => {
+    alert("Hello submitted")
+    e.preventDefault();
+    const data = new FormData();
+    data.append("upload_preset", "upload");
+    try {
+      const newPayment = {
+        ...info,
+      };
+      await axios.post("http://localhost:8000/api/payment", newPayment)
+    } catch (err) {
+      console.log(err);
+    }
+  } 
+
+
+  //----------------------------------------------------------------------------------
 
   const handlePaymentMethodChange = (event) => {
     setPaymentMethod(event.target.value);
@@ -45,19 +71,17 @@ function Payment() {
         <label htmlFor="cardNumber">Card Number:</label>
         <input
           type="text"
-          id="cardNumber"
+          id="cardNo"
           name="cardNumber"
-          value={cardNumber}
-          onChange={(event) => setCardNumber(event.target.value)}
+          onChange={handleChange}
         />
 
         <label htmlFor="cardName">Cardholder Name:</label>
         <input
           type="text"
-          id="cardName"
+          id="cardholderName"
           name="cardName"
-          value={cardName}
-          onChange={(event) => setCardName(event.target.value)}
+          onChange={handleChange}
         />
 
         <div className={styles.formRow}>
@@ -65,10 +89,9 @@ function Payment() {
             <label htmlFor="expiryMonth">Expiration Month:</label>
             <input
               type="text"
-              id="expiryMonth"
+              id="expMonth"
               name="expiryMonth"
-              value={expiryMonth}
-              onChange={(event) => setExpiryMonth(event.target.value)}
+              onChange={handleChange}
             />
           </div>
 
@@ -76,10 +99,9 @@ function Payment() {
             <label htmlFor="expiryYear">Expiration Year:</label>
             <input
               type="text"
-              id="expiryYear"
+              id="expYear"
               name="expiryYear"
-              value={expiryYear}
-              onChange={(event) => setExpiryYear(event.target.value)}
+              onChange={handleChange}
             />
           </div>
 
@@ -89,13 +111,12 @@ function Payment() {
               type="text"
               id="cvv"
               name="cvv"
-              value={cvv}
-              onChange={(event) => setCvv(event.target.value)}
+              onChange={handleChange}
             />
           </div>
         </div>
 
-        <button type="submit">Submit Payment</button>
+        <button type="submit" onClick={handleClick}>Submit Payment</button>
       </form>
     </div>
   );
