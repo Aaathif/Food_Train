@@ -13,7 +13,8 @@ import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentCo
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
-import UpdatePayment from "./pages/UpdatePages/UpdatePayment";
+import UpdatePayment from "./pages/UpdatePages/UpdatePayment/UpdatePayment";
+import UpdateMenuList from "./pages/UpdatePages/UpdateMenuList/UpdateMenuList";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -154,6 +155,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <NewMenuList inputs={menuListInput} title="Add Menu or Offer" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateMenuList inputs={menuListInput} title="Update Menu List Details" />
                   </ProtectedRoute>
                 }
               />
