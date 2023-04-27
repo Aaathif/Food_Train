@@ -1,63 +1,63 @@
-import Blog from "../models/Blog.js"
+import Payment from "../models/Payment.js"
 
-//Create Blog
-export const createBlog = async (req, res, next) => {
-    const newBlog = new Blog(req.body)
+//Create Payment
+export const createPayment = async (req, res, next) => {
+    const newPayment = new Payment(req.body)
 
     try {
-        const savedBlog = await newBlog.save()
-        res.status(200).json(savedBlog)
+        const savedPayment = await newPayment.save()
+        res.status(200).json(savedPayment)
     } catch (err) {
         next(err)
     }
 }
 
-//Update Blog
-export const updateBlog = async (req, res, next) => {
+//Update Payment
+export const updatePayment = async (req, res, next) => {
     try {
-        const updatedBlog = await Blog.findByIdAndUpdate(
+        const updatedPayment = await Payment.findByIdAndUpdate(
             req.params.id, 
             { $set: req.body},
             {new:true}
         )
-        res.status(200).json(updatedBlog)
+        res.status(200).json(updatedPayment)
     } catch (err) {
         next(err)
     }
 }
-//Delete Blog
-export const deleteBlog = async (req, res, next) => {
+//Delete Payment
+export const deletePayment = async (req, res, next) => {
     try {
-        await Blog.findByIdAndDelete(
+        await Payment.findByIdAndDelete(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json("Blog has been delete")
+        res.status(200).json("Payment has been delete")
     } catch (err) {
         next(err)
     }
 }
 
-//GET Blog with ID
-export const getBlogz = async (req, res, next) => { 
+//GET Payment with ID
+export const getPayment = async (req, res, next) => { 
     try {
-        const product = await Blog.findById(
+        const Pay = await Payment.findById(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json(product)
+        res.status(200).json(Pay)
     } catch (err) {
         next(err)
     }
 }
 
-//GET All Blog
-export const getBlogs = async (req, res, next) => { 
+//GET All Payments
+export const getPayments = async (req, res, next) => { 
     try {
-        const Blogs = await Blog.find()
-        res.status(200).json(Blogs)
+        const payments = await Payment.find()
+        res.status(200).json(payments)
     } catch (err) {
         next(err)
     }
@@ -69,7 +69,7 @@ export const getBlogs = async (req, res, next) => {
 //     try {
 //       const list = await Promise.all(
 //         types.map((type) => {
-//           return MenuList.countDocuments({ type: type });
+//           return Product.countDocuments({ type: type });
 //         })
 //       );
 //       res.status(200).json(list);
