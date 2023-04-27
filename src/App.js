@@ -4,15 +4,16 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { menuListInput, productInputs, userInputs } from "./formSource";
+import { menuListInput, paymentInput, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns } from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
+import UpdatePayment from "./pages/UpdatePages/UpdatePayment";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -158,6 +159,34 @@ function App() {
               />
             </Route>
 
+            {/* ----------------------------- Payment ---------------------------------------- */}
+
+            <Route path="payment">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={PaymentColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":productId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdatePayment inputs={paymentInput} title="Update Payment Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
 
           </Route>
         </Routes>
