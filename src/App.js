@@ -11,6 +11,8 @@ import SingleProductPage from './screen/SingleProductPage';
 import EventPage from './screen/EventPage';
 import LoginPage from './screen/LoginPage';
 import RegisterPage from './screen/RegisterPage';
+import CartPage from './screen/CartPage';
+import PaymentPage from './screen/PaymentPage';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
             <Route path='/singleProduct/:id' element={<SingleProductPage/>}/>
             <Route path='/login' element={<LoginPage/>}/>
             <Route path='/register' element={<RegisterPage/>}/>
+            <Route path='/cart' element={<CartPage/>}/>
+            <Route path='/payment' element={<PaymentPage/>}/>
         </Routes>
       </div>
     </Router>
