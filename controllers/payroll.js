@@ -1,6 +1,6 @@
 import Payroll from "../models/Payroll.js"
 
-//Create Payment
+//Create Payroll
 export const createPayroll = async (req, res, next) => {
     const newPayroll = new Payroll(req.body)
 
@@ -12,7 +12,7 @@ export const createPayroll = async (req, res, next) => {
     }
 }
 
-//Update Payment
+//Update Payroll
 export const updatePayroll = async (req, res, next) => {
     try {
         const updatedPayroll = await Payroll.findByIdAndUpdate(
@@ -25,6 +25,7 @@ export const updatePayroll = async (req, res, next) => {
         next(err)
     }
 }
+
 //Delete Payroll
 export const deletePayroll = async (req, res, next) => {
     try {
