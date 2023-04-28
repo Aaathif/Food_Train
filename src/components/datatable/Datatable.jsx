@@ -35,7 +35,7 @@ const Datatable = ({columns}) => {
             <Link to="/users/test" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
-            <Link to={`/${path}/update/${params.row._id}`} style={{ textDecoration: "none" }}>
+            <Link to={`/${path}/update/${params.row._id}`} state={data} style={{ textDecoration: "none" }}>
               <div className="viewButton">Update</div>
             </Link>
             <div

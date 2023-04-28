@@ -6,7 +6,6 @@ import Navbar from "../../../components/navbar/Navbar";
 import { useState } from "react";
 import { useLocation, useParams } from 'react-router-dom'
 
-
 const UpdateMenuList = ({ inputs, title }) => {
 
   const [MenuListData, setMenuListData] = useState({})
@@ -15,7 +14,8 @@ const UpdateMenuList = ({ inputs, title }) => {
   console.log(location)
   const ids = location.pathname.split("/")[3]
   console.log(ids)
-
+//   const data = location.state.data
+//   console.log(data)
 
   const updateMenuList = async () => {
     // const { id } = MenuList;
