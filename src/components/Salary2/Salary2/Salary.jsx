@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import css from './Salary.module.css';
+import axios from 'axios';
 // import DatePicker from 'react-datepicker';
 // import { toWords } from 'number-to-words';
 
@@ -66,6 +67,28 @@ function Salary({Data}) {
     //   }
 
 
+    // sending to mongoDB using input
+    const [info, setInfo] = useState({})  //step 1
+
+    const handleChange = (e) => {   //step 2
+        setInfo((prev) => ({...prev, [e.target.id]: e.target.value}))
+    } 
+
+    const handleClick = async (e) => {  //step 3
+        alert("Hello submitted")
+        e.preventDefault();
+        const data = new FormData();
+        data.append("upload_preset", "upload");
+        try {
+          const newPayroll = {
+            ...info,
+          };
+          await axios.post("http://localhost:8000/api/payroll", newPayroll)
+        } catch (err) {
+          console.log(err);
+        }
+      } 
+
   return (
     <div class={css.container}>
         <div className={css.row}>
@@ -79,11 +102,13 @@ function Salary({Data}) {
                 <div className='align' style={{ display: 'flex',  gap: '80px' , marginTop:'20px' , marginLeft:'10px', marginBottom:'10px'}}>
 
                 <h4>{Data.TextP3}</h4>
+                {/* name */}
                 <input type="text" class="form-control" placeholder={Data.TextP5}/>
                 </div>
 
                 <div style={{ display: 'flex', gap: '34px' , marginLeft:'10px' }}>
                 <h4>{Data.TextP4}</h4>
+                {/* emp ID */}
                 <input type="text" class="form-control" placeholder={Data.TextP6}/>
                 </div>
             </div>
@@ -133,72 +158,99 @@ function Salary({Data}) {
 
              <div className='align' style={{ display: 'flex',  gap: '640px' , marginTop:'20px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP14}</h4>
+                {/* Basic Salary */}
                 <input type="text" class="form-control" placeholder={Data.TextP20}
 
-                 onChange={(event)=>
-                {
-                setSalary(event.target.value);
-                }} 
+                //  onChange={(event)=>
+                // {
+                // setSalary(event.target.value);
+                // }} 
+                onChange={handleChange}
+                id='basicSalary'
                 />
              </div>
 
              <div className='align' style={{ display: 'flex',  gap: '615px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP15}</h4>
+                {/* Meal Allowance */}
                 <input type="text" class="form-control" placeholder={Data.TextP21}
 
-                onChange={(event)=>
-                {
-                setMeal(event.target.value);
-                }}
+                // onChange={(event)=>
+                // {
+                // setMeal(event.target.value);
+                // }}
+                onChange={handleChange}
+                id='mealAllowance'
                 />
              </div>
 
              <div className='align' style={{ display: 'flex',  gap: '546px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP16}</h4>
+                {/* Transportation Allowance */}
                 <input type="text" class="form-control" placeholder={Data.TextP22}
 
-                onChange={(event)=>
-                {
-                 setTransport(event.target.value);
-                }}
+                // onChange={(event)=>
+                // {
+                //  setTransport(event.target.value);
+                // }}
+                onChange={handleChange}
+                id='transportationAllowance'
                 />
              </div>
 
              <div className='align' style={{ display: 'flex',  gap: '595px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP17}</h4>
+                {/* Medical Allowance */}
                 <input type="text" class="form-control" placeholder={Data.TextP23}
 
-                onChange={(event)=>
-                 {
-                 setMedical(event.target.value);
-                 }}
+                // onChange={(event)=>
+                //  {
+                //  setMedical(event.target.value);
+                //  }}
+                onChange={handleChange}
+                id='medicalAllowance'
                  />
              </div>
 
              <div className='align' style={{ display: 'flex',  gap: '1070px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP18}</h4>
+                {/* Retirement Insurance */}
                 <input type="text" class="form-control" placeholder={Data.TextP28}
-                     onChange={(event)=>
-                        {
-                        setInsurance(event.target.value);
-                        }}
+                    //  onChange={(event)=>
+                    //     {
+                    //     setInsurance(event.target.value);
+                    //     }}
+                    onChange={handleChange}
+                    id='retirementInsurance'
                 />
              </div>
 
              <div className='align' style={{ display: 'flex',  gap: '1198px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP19}</h4>
-                <input type="text" class="form-control" placeholder={Data.TextP29} value={Tax}/>
+                {/* Tax */}
+                <input type="text" class="form-control" placeholder={Data.TextP29} value={Tax}
+                    onChange={handleChange}
+                    id='tax'
+                />
              </div>
 
              <div className='align' style={{ display: 'flex',  gap: '1196px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP25}</h4>
-                <input type="text" class="form-control" placeholder={Data.TextP21} value={EPF}/>
+                {/* EPF */}
+                <input type="text" class="form-control" placeholder={Data.TextP21} value={EPF}
+                    onChange={handleChange}
+                    id='EPF'
+                />
              </div>
 
 
              <div className='align' style={{ display: 'flex',  gap: '1196px' , marginTop:'15px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP44}</h4>
-                <input type="text" class="form-control" placeholder={Data.TextP21} value={ETF}/>
+                {/* ETF */}
+                <input type="text" class="form-control" placeholder={Data.TextP21} value={ETF} 
+                    onChange={handleChange}
+                    id='ETF'
+                />
              </div>
                
 
@@ -232,7 +284,8 @@ function Salary({Data}) {
         <div className={css.col} style={{flex:1}}>
 
         <div className='align'  style={{   marginTop:'10px' , marginLeft:'10px', marginBottom:'0px' }}  >
-        <button type="submit" onClick={Calculation} className="btn" style={{ padding: '0px 20px 0px 20px', height:'30px',width:'100px',backgroundColor: '#AC9B7E', color: '#000000', border: '1px solid black', borderRadius: '10px 10px 10px 10px', 
+            {/* calculate */}
+        <button type="submit" onClick={handleClick} className="btn" style={{ padding: '0px 20px 0px 20px', height:'30px',width:'100px',backgroundColor: '#AC9B7E', color: '#000000', border: '1px solid black', borderRadius: '10px 10px 10px 10px', 
             fontSize: '16px', marginTop: '0px', cursor: 'pointer'}}>{Data.TextP24}</button>
         </div>  
 
