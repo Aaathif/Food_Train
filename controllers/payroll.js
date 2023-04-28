@@ -1,46 +1,46 @@
-import Payment from "../models/Payment.js"
+import Payroll from "../models/Payroll.js"
 
 //Create Payment
-export const createPayment = async (req, res, next) => {
-    const newPayment = new Payment(req.body)
+export const createPayroll = async (req, res, next) => {
+    const newPayroll = new Payroll(req.body)
 
     try {
-        const savedPayment = await newPayment.save()
-        res.status(200).json(savedPayment)
+        const savedPayroll = await newPayroll.save()
+        res.status(200).json(savedPayroll)
     } catch (err) {
         next(err)
     }
 }
 
 //Update Payment
-export const updatePayment = async (req, res, next) => {
+export const updatePayroll = async (req, res, next) => {
     try {
-        const updatedPayment = await Payment.findByIdAndUpdate(
+        const updatedPayroll = await Payroll.findByIdAndUpdate(
             req.params.id, 
             { $set: req.body},
             {new:true}
         )
-        res.status(200).json(updatedPayment)
+        res.status(200).json(updatedPayroll)
     } catch (err) {
         next(err)
     }
 }
-//Delete Payment
-export const deletePayment = async (req, res, next) => {
+//Delete Payroll
+export const deletePayroll = async (req, res, next) => {
     try {
-        await Payment.findByIdAndDelete(
+        await Payroll.findByIdAndDelete(
             req.params.id, 
         )
-        res.status(200).json("Payment has been delete")
+        res.status(200).json("Payroll has been delete")
     } catch (err) {
         next(err)
     }
 }
 
-//GET Payment with ID
-export const getPayment = async (req, res, next) => { 
+//GET Payroll with ID
+export const getPayroll = async (req, res, next) => { 
     try {
-        const Pay = await Payment.findById(
+        const Pay = await Payroll.findById(
             req.params.id, 
         )
         res.status(200).json(Pay)
@@ -49,11 +49,11 @@ export const getPayment = async (req, res, next) => {
     }
 }
 
-//GET All Payments
-export const getPayments = async (req, res, next) => { 
+//GET All Payrolls
+export const getPayrolls = async (req, res, next) => { 
     try {
-        const payments = await Payment.find()
-        res.status(200).json(payments)
+        const payrolls = await Payroll.find()
+        res.status(200).json(payrolls)
     } catch (err) {
         next(err)
     }

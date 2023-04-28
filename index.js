@@ -9,6 +9,7 @@ import MenuListsRoute from "./routes/menuLists.js";
 import BlogsRoute from "./routes/blogs.js";
 import EventsRoute from "./routes/events.js";
 import PaymentsRoute from "./routes/payments.js";
+import PayrollsRoute from "./routes/payrolls.js";
 
 
 import cookieParser from "cookie-parser";
@@ -56,6 +57,7 @@ app.use("/api/menuList", MenuListsRoute);
 app.use("/api/blog", BlogsRoute);
 app.use("/api/event", EventsRoute);
 app.use("/api/payment", PaymentsRoute);
+app.use("/api/payroll", PayrollsRoute);
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500
