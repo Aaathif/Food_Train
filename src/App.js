@@ -4,17 +4,18 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { menuListInput, paymentInput, productInputs, userInputs } from "./formSource";
+import { menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns } from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
 import UpdatePayment from "./pages/UpdatePages/UpdatePayment/UpdatePayment";
 import UpdateMenuList from "./pages/UpdatePages/UpdateMenuList/UpdateMenuList";
+import UpdatePayroll from "./pages/UpdatePages/UpdatePayroll/UpdatePayroll";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -192,6 +193,35 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <UpdatePayment inputs={paymentInput} title="Update Payment Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* ----------------------------- Payment ---------------------------------------- */}
+
+            <Route path="payroll">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={PayrollColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":payrollId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdatePayroll inputs={payrollInput} title="Update Payment Details" />
                   </ProtectedRoute>
                 }
               />

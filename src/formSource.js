@@ -201,3 +201,56 @@ export const paymentInput = [
   }
 ]
 
+
+
+// ----------------------------- payrollInput ---------------------------------------- 
+export const payrollInput = [
+  {
+    id: "basicSalary",
+    label: "Basic Salary",
+    type: "text",
+    placeholder: "23000",
+  },
+  {
+    id: "mealAllowance",
+    label: "Meal Allowance",
+    type: "text",
+    placeholder: "10000",
+  },
+  {
+    id: "transportationAllowance",
+    label: "Transportation Allowance",
+    type: "text",
+    placeholder: "5000",
+  },
+  {
+    id: "medicalAllowanceYear",
+    label: "Medical Allowance",
+    type: "text",
+    placeholder: "20000",
+  },
+  {
+    id: "retirementInsurance",
+    label: "Retirement Insurance",
+    type: "text",
+    placeholder: "50000"
+  },
+  {
+    id: "tax",
+    label: "Tax",
+    type: "text",
+    placeholder: "50000"
+  },
+  {
+    id: "EPF",
+    label: "EPF",
+    type: "text",
+    placeholder: "8"
+  },
+  {
+    id: "ETF",
+    label: "ETF",
+    type: "text",
+    placeholder: "3"
+  }
+]
