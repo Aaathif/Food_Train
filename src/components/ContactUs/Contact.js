@@ -3,81 +3,44 @@ import Styles from './contact.module.css'
 import { useState } from 'react'
 import managementTeam from './Details'
 import headOffice from './Location'
+import axios from 'axios'
+// import { error } from 'console'
 
-// function Contact() {
+function Contact() {
 
-  // const [ data, setData ] = useState({name:"", email:"", phone:"", message:""})
-  // const handleChange = (event) => {
-  //   const name = event.target.name
-  //   const value = event.target.value
-  //   setData({...data, [name]: value})
-  // }
+  const [ data, setData ] = useState({name:"", email:"", phone:"", message:""})
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   alert(data.name + " " + data.email + " " + data.phone + " " + data.message)
-  // }
-
-//   return (
-//     <div className={Styles.row}>
-//         <div className={Styles.col}>
-//              <h1>Contact US</h1>
-//              <h2>We Would like to here from you</h2>
-//             <form method='post' onSubmit={handleSubmit}>
-//                 <input type='name' name='name' id='' onChange={handleChange} value={data.name} placeholder='Enter Name'/>
-//                 <input type='email' name='email' id='' onChange={handleChange} value={data.email} placeholder='example@gmail.com'/>
-//                 <input type='phone' name='phone' id='' onChange={handleChange} value={data.phone}placeholder='+94'/>
-//                 <textarea name='message' cols="20" rows="10" onChange={handleChange} value={data.message} placeholder='Type your message...'></textarea>
-//                 <button>Submit</button>
-//             </form>
-//         </div>
-//         <div className={Styles.col1}>
-//              <h1>Know Our Management</h1>
-//              <h2>We are here to serve you</h2>
-            
-//         </div>
-      
-//     </div>
-//   )
-// }
-
-// export default Contact
-
-class Contact extends React.Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       name: '',
-       email: '',
-       phone: '',
-       message: '',
-    };
-  }
-
-  handleChange = (event) => {
+  const handleChange = (event) => {
     const name = event.target.name
     const value = event.target.value
-    this.setState({ [name]: value})
+    setData({...data, [name]: value})
   }
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    const {name, email, phone, message} = this.state
-    alert(`${name} ${email} ${phone} ${message}`)
+    
+    //send data to backend using Axios
+    axios.post('http://localhost:8000/api/contacts', data)
+      .then(response => {
+        console.log(response.data);
+        alert("Your Input has been Included");
+        setData({name:"", email:"", phone:"", message:""});
+      })
+      .catch(error => {
+        console.log(error);
+        alert("Something went wrong. Please try again later")
+      })
   }
 
-  render() {
-    const { name, email, phone, message} = this.state
-    return (
-      <div className={Styles.main}>
-        <div className={Styles.row}>
+  return (
+    <div className={Styles.main}>
+       <div className={Styles.row}>
         <div className={Styles.col2}>
-             <h1 style={{color:"#C52726"}} >GET IN TOUCH</h1>
+             <h1 style={{color:"#c52726"}}>GET IN TOUCH</h1>
              <h2>
-              Visit One of Our Restaurants<br/>
-              OR<br/>
-              Contact US
+              <div>Visit One of Our Restaurants</div>
+              <div>OR</div>
+              <div>Contact US</div>
               </h2>
               {headOffice.map((data) => (
                 <div className={Styles.imgContainer1} key={data.id}>
@@ -98,16 +61,15 @@ class Contact extends React.Component {
          </div>
           </div>
         </div>
-
-      <div className={Styles.row}>
+        <div className={Styles.row}>
         <div className={Styles.col}>
-             <h1 style={{color:"#C52726"}}>Contact US</h1>
-             <h2 style={{marginBottom:"2rem"}}>We Would like to here from you</h2>
-            <form className={Styles.form} method='post' onSubmit={this.handleSubmit }>
-                <input type='name' name='name' id='' onChange={this.handleChange} value={name} placeholder='Enter Name'/>
-                <input type='email' name='email' id='' onChange={this.handleChange} value={email} placeholder='example@gmail.com'/>
-                <input type='phone' name='phone' id='' onChange={this.handleChange} value={phone}placeholder='+94'/>
-                <textarea name='message' cols="20" rows="10" onChange={this.handleChange} value={message} placeholder='Type your message...'></textarea>
+             <h1>Contact US</h1>
+             <h2>We Would like to here from you</h2>
+            <form className={Styles.form} method='post' onSubmit={handleSubmit}>
+                <input type='name' name='name' id='' onChange={handleChange} value={data.name} placeholder='Enter Name'/>
+                <input type='email' name='email' id='' onChange={handleChange} value={data.email} placeholder='example@gmail.com'/>
+                <input type='phone' name='phone' id='' onChange={handleChange} value={data.phone}placeholder='+94'/>
+                <textarea name='message' cols="20" rows="10" onChange={handleChange} value={data.message} placeholder='Type your message...'></textarea>
                 <button>Submit</button>
             </form>
         </div>
@@ -130,9 +92,11 @@ class Contact extends React.Component {
         
      </div>
     </div>
-    )
-  }
+  )
 }
 
 export default Contact
+
+
+
 
