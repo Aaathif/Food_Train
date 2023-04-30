@@ -254,3 +254,37 @@ export const payrollInput = [
     placeholder: "3"
   }
 ]
+
+// ----------------------------- bloglInput ---------------------------------------- 
+export const blogInput = [
+  {
+    id: "TextH",
+    label: "Blog Tile",
+    type: "data",
+    placeholder: "Enter blog title",
+  },
+  {
+    id: "TextP",
+    label: "Blog Paragraph",
+    type: "text",
+    placeholder: "type blog paragraph",
+  },
+  {
+    id: "img",
+    label: "Imgae",
+    type: "text",
+    placeholder: "Enter image Url",
+  },
+  {
+    id: "Btn",
+    label: "Button",
+    type: "text",
+    placeholder: "Enter button name",
+  },
+  {
+    id: "textFull",
+    label: "Description",
+    type: "text",
+    placeholder: "Enter description"
+  },
+]

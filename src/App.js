@@ -4,12 +4,12 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
+import { blogInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns } from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
@@ -17,6 +17,7 @@ import UpdatePayment from "./pages/UpdatePages/UpdatePayment/UpdatePayment";
 import UpdateMenuList from "./pages/UpdatePages/UpdateMenuList/UpdateMenuList";
 import UpdatePayroll from "./pages/UpdatePages/UpdatePayroll/UpdatePayroll";
 import UpdateProduct from "./pages/UpdatePages/UpdateProduct/UpdateProduct";
+import NewBlog from "./pages/Adding Page/newBlog/NewBlog";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -231,6 +232,43 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <UpdatePayroll inputs={payrollInput} title="Update Payment Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------Blog ---------------------------------------- */}
+
+            <Route path="blog">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={BlogColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdatePayroll inputs={blogInput} title="Update Blog Details" />
                   </ProtectedRoute>
                 }
               />

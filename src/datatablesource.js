@@ -239,3 +239,40 @@ export const PayrollColumns = [
     width: 100,
   }
 ]
+
+
+{/*------------------------ BlogColumns --------------------------*/}
+
+
+export const BlogColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "TextH",
+    headerName: "Blog Header",
+    width: 250,
+  },
+  {
+    field: "TextP",
+    headerName: "Blog Paragraph",
+    width: 200,
+  },
+  {
+    field: "img",
+    headerName: "Image",
+    width: 100,
+  },
+  {
+    field: "Btn",
+    headerName: "Button",
+    width: 100,
+  },
+  {
+    field: "textFull",
+    headerName: "description",
+    width: 100,
+  },
+]

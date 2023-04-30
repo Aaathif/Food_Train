@@ -71,6 +71,12 @@ const Sidebar = () => {
               <span>Payroll</span>
             </li>
           </Link>
+          <Link to="/blog" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Blog</span>
+            </li>
+          </Link>
 
 {/* ----------------------------------------------------------------------------------- */}
 
