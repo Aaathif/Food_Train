@@ -59,7 +59,7 @@ app.use("/api/blog", BlogsRoute);
 app.use("/api/event", EventsRoute);
 app.use("/api/payment", PaymentsRoute);
 app.use("/api/payroll", PayrollsRoute);
-app.use("/api/contact", ContactsRoute);
+app.use("/api/contacts", ContactsRoute);
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500
