@@ -8,6 +8,8 @@ import useFetch from "../../hooks/useFetch";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
+  const [imageId, setImageId] = useState(null);
+
   const [info, setInfo] = useState({});
 
   const [size, setSize] = useState("");
@@ -57,7 +59,8 @@ const New = ({ inputs, title }) => {
         "https://api.cloudinary.com/v1_1/dbzy3p0c7/image/upload",
         data
       );
-
+      // setImageId(uploadRes.data.public_id);
+      // console.log(imageId+"hello")
       const { url } = uploadRes.data;
 
       const newProduct = {
@@ -132,11 +135,13 @@ const New = ({ inputs, title }) => {
               {/* -------------------------------------------------------------------------------------- */}
 
               {prices.map((price, index) => (
-                <div key={index}>
+                <div key={index} className="formInputArray">
+                  <label htmlFor="size">Price for each product</label>
                   <input
                     type="text"
                     name="size"
                     value={price.size}
+                    placeholder="S or M or L"
                     onChange={(event) => handlePriceChange(index, event)}
                   />
                   <input

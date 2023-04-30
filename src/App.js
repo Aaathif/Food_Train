@@ -16,6 +16,7 @@ import NewMenuList from "./pages/newMenuList/NewMenuList";
 import UpdatePayment from "./pages/UpdatePages/UpdatePayment/UpdatePayment";
 import UpdateMenuList from "./pages/UpdatePages/UpdateMenuList/UpdateMenuList";
 import UpdatePayroll from "./pages/UpdatePages/UpdatePayroll/UpdatePayroll";
+import UpdateProduct from "./pages/UpdatePages/UpdateProduct/UpdateProduct";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -103,7 +104,7 @@ function App() {
               />
             </Route>
 
-            {/* --------------------------------------------------------------------- */}
+            {/* --------------------------- Product ------------------------------------------ */}
 
             <Route path="product">
               <Route
@@ -126,7 +127,15 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewProduct  inputs={productInputs} title="Add New Products hello"/>
+                    <NewProduct  inputs={productInputs} title="Add New Products"/>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateProduct inputs={productInputs} title="Update Product Details" />
                   </ProtectedRoute>
                 }
               />
