@@ -260,7 +260,7 @@ export const blogInput = [
   {
     id: "TextH",
     label: "Blog Tile",
-    type: "data",
+    type: "text",
     placeholder: "Enter blog title",
   },
   {
@@ -286,5 +286,46 @@ export const blogInput = [
     label: "Description",
     type: "text",
     placeholder: "Enter description"
+  },
+]
+
+
+// ----------------------------- eventInput ---------------------------------------- 
+export const eventInput = [
+  {
+    id: "title",
+    label: "Event Title",
+    type: "text",
+    placeholder: "Gold Iftar Meal Box",
+  },
+  {
+    id: "offer",
+    label: "offer",
+    type: "text",
+    placeholder: "50",
+  },
+  {
+    id: "date",
+    label: "text",
+    type: "text",
+    placeholder: "Enter Date",
+  },
+  {
+    id: "description",
+    label: "Description",
+    type: "text",
+    placeholder: "Mutton Biryani | chiken Handi | Half Naan | Samosa | Fruit Chaat | Salad |Dates|Mint Raita | Gulab Jamun | Water or juice",
+  },
+  {
+    id: "photos",
+    label: "Photos",
+    type: "text",
+    placeholder: "url"
+  },
+  {
+    id: "prices",
+    label: "Prices",
+    type: "text",
+    placeholder: "2990"
   },
 ]

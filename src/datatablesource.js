@@ -276,3 +276,45 @@ export const BlogColumns = [
     width: 100,
   },
 ]
+
+{/*------------------------ EventColumns --------------------------*/}
+
+
+export const EventColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "title",
+    headerName: "Event Title",
+    width: 250,
+  },
+  {
+    field: "offer",
+    headerName: "Offer",
+    width: 80,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 100,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 300,
+  },
+  {
+    field: "photos",
+    headerName: "Photos",
+    width: 100,
+  },
+  {
+    field: "prices",
+    headerName: "Prices",
+    width: 100,
+  },
+]
+
