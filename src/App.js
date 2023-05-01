@@ -18,6 +18,7 @@ import UpdateMenuList from "./pages/UpdatePages/UpdateMenuList/UpdateMenuList";
 import UpdatePayroll from "./pages/UpdatePages/UpdatePayroll/UpdatePayroll";
 import UpdateProduct from "./pages/UpdatePages/UpdateProduct/UpdateProduct";
 import NewBlog from "./pages/Adding Page/newBlog/NewBlog";
+import UpdateBlog from "./pages/UpdatePages/UpdateBlog/UpdateBlog";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -268,7 +269,7 @@ function App() {
                 path="update/:Id"
                 element={
                   <ProtectedRoute>
-                    <UpdatePayroll inputs={blogInput} title="Update Blog Details" />
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
                   </ProtectedRoute>
                 }
               />

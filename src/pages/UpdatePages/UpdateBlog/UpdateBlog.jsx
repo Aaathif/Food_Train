@@ -1,10 +1,10 @@
 import "./UpdateBlog.scss";
 // import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import axios from "axios";
-import { useState } from "react";
-import { useLocation, useParams } from 'react-router-dom'
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
+import { useState } from "react";
+import { useLocation, useParams } from 'react-router-dom'
 
 const UpdateBlog = ({ inputs, title }) => {
 
@@ -22,9 +22,9 @@ const UpdateBlog = ({ inputs, title }) => {
 
     console.log(blogData)
     try {
-      const updateBlog = await axios.put(`http://localhost:8000/api/blog/${ids}`, blogData);
+      const updatedBlog = await axios.put(`http://localhost:8000/api/blog/${ids}`, blogData);
   
-      console.log('Updated blog:', updateBlog.data);
+      console.log('Updated Blog:', updatedBlog.data);
     } catch (err) {
       console.log(err);
     }
