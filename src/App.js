@@ -14,6 +14,9 @@ import RegisterPage from './screen/RegisterPage';
 import CartPage from './screen/CartPage';
 import PaymentPage from './screen/PaymentPage';
 import SalaryPage from './screen/SalaryPage';
+import DeliveryPage from './screen/DeliveryPage';
+import DeliverySummary from './screen/DeliverySummary';
+import DeliveryEdit from './screen/DeliveryEdit';
 
 
 function App() {
@@ -34,6 +37,9 @@ function App() {
             <Route path='/cart' element={<CartPage/>}/>
             <Route path='/payment' element={<PaymentPage/>}/>
             <Route path='/salary' element={<SalaryPage/>}/>
+            <Route path='/delivery' element={<DeliveryPage/>}/>
+            <Route path='/deliveryEdit' element={<DeliveryEdit/>}/>
+            <Route path='/deliverySummary' element={<DeliverySummary/>}/>
         </Routes>
       </div>
     </Router>

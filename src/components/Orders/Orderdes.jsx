@@ -1,5 +1,6 @@
 import React from 'react'
 import css from './Orders.module.css'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function Orderdes({Orderdata}) {
@@ -42,12 +43,13 @@ function Orderdes({Orderdata}) {
 
       <div className={css.row}> 
          <div className={css.colum}>
-         <img src={Orderdata.closebtn} style={{ height: '10px', width: '10px' }} alt="cxsvcxs"  />
+         {/* <img src={Orderdata.closebtn} style={{ height: '10px', width: '10px' }} alt="cxsvcxs"  /> */}
+         <DeleteIcon style={{color: "red", fontSize: "30px"}}/>
          
         </div>
 
         <div className={css.colum}>
-        <img src={Orderdata.imggg} style={{ height: '80px', width: '80px' }} alt="" />
+        <img src={Orderdata.imggg} style={{ height: '80px', width: '80px', borderRadius:"20px" }} alt="" />
         </div>
 
         <div className={css.colum}>
@@ -97,9 +99,6 @@ function Orderdes({Orderdata}) {
                   <button className={css.btn2}>{Orderdata.checkout}</button>
 
                 </div>
-
-                
-
             </div>
 
 
