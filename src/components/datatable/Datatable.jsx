@@ -2,12 +2,19 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 // import userInputs from '../../formSource'
+import { useReactToPrint } from 'react-to-print'
+
+
+
 
 const Datatable = ({columns}) => {
+
+  const componentPDF = useRef()
+
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();  //this is need when we need to delete
@@ -16,6 +23,12 @@ const Datatable = ({columns}) => {
   useEffect(() => {
     setList(data);
   }, [data]);
+
+  const generatePDF = useReactToPrint({
+    content: ()=>componentPDF.current,
+    documentTitle: "Summary Data",
+    // onAfterPrint: ()=>alert("Data saved in PDF")
+  })
 
   const handleDelete = async (id) => {
     try {
@@ -50,14 +63,16 @@ const Datatable = ({columns}) => {
     },
   ];
   return (
-    <div className="datatable">
+    <div className="datatable" ref={componentPDF}>
       <div className="datatableTitle">
         {path}
         <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
       </div>
-      <DataGrid
+
+      <button className="pdf" onClick={generatePDF}>PDF</button>
+      <DataGrid 
         className="datagrid"
         rows={list}
         columns={columns.concat(actionColumn)}
@@ -66,6 +81,7 @@ const Datatable = ({columns}) => {
         checkboxSelection
         getRowId={(row) => row._id}
       />
+      
     </div>
   );
 };
