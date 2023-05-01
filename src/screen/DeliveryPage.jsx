@@ -6,7 +6,7 @@ function DeliveryPage() {
   return (
     <div>
       <Display2 />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

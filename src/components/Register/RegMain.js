@@ -1,5 +1,5 @@
 import React from 'react'
-import Reg from './Reg'
+import Signup from './Reg2'
 import data from './RegData'
 
 function RegMain() {
@@ -7,7 +7,7 @@ function RegMain() {
     <div>
          <div>
             {data.map(Data => { 
-                return <div><Reg Data ={Data}/></div>
+                return <div><Signup Data ={Data}/></div>
 
             })}
         </div>

@@ -17,6 +17,8 @@ import SalaryPage from './screen/SalaryPage';
 import DeliveryPage from './screen/DeliveryPage';
 import DeliverySummary from './screen/DeliverySummary';
 import DeliveryEdit from './screen/DeliveryEdit';
+import ProfilePage from './screen/ProfilePage';
+import Orders from './components/Profile/Orders';
 
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
             <Route path='/delivery' element={<DeliveryPage/>}/>
             <Route path='/deliveryEdit' element={<DeliveryEdit/>}/>
             <Route path='/deliverySummary' element={<DeliverySummary/>}/>
+            <Route path='/profile' element={<ProfilePage/>} /> 
+            <Route path="/orders" element={<Orders />}/>
         </Routes>
       </div>
     </Router>
