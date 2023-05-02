@@ -7,7 +7,11 @@ const Pay = () => {
 
     const [stripeToke, serStripeToken] = useState(null)
 
+    const [orders, setOrders] = useState([]);
+
     const onToken = (token) => {
+        const newOrder = { description: "Your total is 20", amount: 2000 };
+        setOrders([...orders, newOrder]);
         serStripeToken(token);
     };
 
@@ -34,9 +38,6 @@ const Pay = () => {
         }
 
     }, [stripeToke]);
-
-    const [data, setData] = useState([])
-
     
 
     return (
@@ -73,8 +74,8 @@ const Pay = () => {
 
 
                 >pay Now
-                
-                </button>
+                    
+                </button> 
             </StripeCheckout>
         </div>
 
