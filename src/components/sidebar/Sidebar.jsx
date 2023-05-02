@@ -83,6 +83,12 @@ const Sidebar = () => {
               <span>Event</span>
             </li>
           </Link>
+          <Link to="/delivery" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Delivery</span>
+            </li>
+          </Link>
 
 {/* ----------------------------------------------------------------------------------- */}
 

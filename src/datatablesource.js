@@ -318,3 +318,27 @@ export const EventColumns = [
   },
 ]
 
+
+{/*------------------------ delievryColumns --------------------------*/}
+export const delievryColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 300,
+  },
+  {
+    field: "phoneNo",
+    headerName: "Phone No",
+    width: 150,
+  },
+  {
+    field: "city",
+    headerName: "City",
+    width: 150,
+  },
+]

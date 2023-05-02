@@ -4,12 +4,12 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { blogInput, eventInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
+import { blogInput, deliveryInput, eventInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns, EventColumns } from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
@@ -21,6 +21,8 @@ import NewBlog from "./pages/Adding Page/newBlog/NewBlog";
 import UpdateBlog from "./pages/UpdatePages/UpdateBlog/UpdateBlog";
 import NewEvent from "./pages/Adding Page/newEvent/NewEvent";
 import UpdateEvent from "./pages/UpdatePages/UpdateEvent/UpdateEvent";
+import NewDelivery from "./pages/Adding Page/newDelivery/NewDelivery";
+import UpdateDelivery from "./pages/UpdatePages/UpdateDelivery/UpdateDelivery";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -309,6 +311,43 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <UpdateEvent inputs={eventInput} title="Update Event Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------Delivery ---------------------------------------- */}
+
+            <Route path="delivery">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={delievryColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewDelivery inputs={deliveryInput} title="Add Event" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":eventId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateDelivery inputs={deliveryInput} title="Update Event Details" />
                   </ProtectedRoute>
                 }
               />
