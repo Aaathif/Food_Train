@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import styles from './DeliveryPage.module.css';
 
 function DeliveryPage2(props) {
