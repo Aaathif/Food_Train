@@ -89,6 +89,18 @@ const Sidebar = () => {
               <span>Delivery</span>
             </li>
           </Link>
+          <Link to="/feedback" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Feedback</span>
+            </li>
+          </Link>
+          <Link to="/customers" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Customer</span>
+            </li>
+          </Link>
 
 {/* ----------------------------------------------------------------------------------- */}
 

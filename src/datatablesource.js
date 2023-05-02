@@ -342,3 +342,100 @@ export const delievryColumns = [
     width: 150,
   },
 ]
+
+{/*------------------------ FeedbackColumns --------------------------*/}
+export const FeedbackColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "feedbackType",
+    headerName: "Feedback Type",
+    width: 300,
+  },
+  {
+    field: "category",
+    headerName: "Category",
+    width: 150,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 150,
+  },
+]
+
+{/*------------------------ contactUSColumns --------------------------*/}
+export const contactColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 300,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
+  },
+  {
+    field: "phone",
+    headerName: "Phone",
+    width: 150,
+  },
+  {
+    field: "message",
+    headerName: "Message",
+    width: 150,
+  },
+]
+
+{/*------------------------ customerColumns --------------------------*/}
+export const customerColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "username",
+    headerName: "User Name",
+    width: 300,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
+  },
+  {
+    field: "firstName",
+    headerName: "FirstName",
+    width: 150,
+  },
+  {
+    field: "lastName",
+    headerName: "LastName",
+    width: 150,
+  },
+  {
+    field: "contactNo",
+    headerName: "ContactNo",
+    width: 150,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 150,
+  },
+  {
+    field: "dateOfBirth",
+    headerName: "Date Of Birth",
+    width: 150,
+  },
+]
