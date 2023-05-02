@@ -14,6 +14,7 @@ import ContactsRoute from "./routes/contacts.js";
 import CustomersRoute from "./routes/customers.js";
 // import stripeRoute from "./routes/stripe.js";
 import DeliveryRoute from "./routes/deliveries.js"
+import FeedbacksRoute from "./routes/feedbacks.js"
 
 
 import cookieParser from "cookie-parser";
@@ -65,6 +66,7 @@ app.use("/api/payroll", PayrollsRoute);
 app.use("/api/contacts", ContactsRoute);
 app.use("/api/customers", CustomersRoute);
 app.use("/api/delivery", DeliveryRoute);
+app.use("/api/feedback", FeedbacksRoute);
 
 // app.use("/api/checkout", stripeRoute);
 
