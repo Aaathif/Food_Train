@@ -12,6 +12,7 @@ import PaymentsRoute from "./routes/payments.js";
 import PayrollsRoute from "./routes/payrolls.js";
 import ContactsRoute from "./routes/contacts.js";
 import CustomersRoute from "./routes/customers.js";
+// import stripeRoute from "./routes/stripe.js";
 
 
 import cookieParser from "cookie-parser";
@@ -62,6 +63,7 @@ app.use("/api/payment", PaymentsRoute);
 app.use("/api/payroll", PayrollsRoute);
 app.use("/api/contacts", ContactsRoute);
 app.use("/api/customers", CustomersRoute);
+// app.use("/api/checkout", stripeRoute);
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500
