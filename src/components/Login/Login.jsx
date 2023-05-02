@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Css from './Login.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Login({ Data }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, seterror] = useState(false)
@@ -14,6 +15,7 @@ function Login({ Data }) {
       seterror(true)
     }
     if (email && password) {
+      navigate("/");
       console.log(email, password)
     }
   }

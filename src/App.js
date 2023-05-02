@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import HomePage from './screen/HomePage';
 import ProductPage from './screen/ProductPage';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import BlogPage from './screen/BlogPage';
 import SingleBlogPage from './screen/SingleBlogPage';
 import ContactUsPage from './screen/ContactUsPage';
@@ -19,14 +19,27 @@ import DeliverySummary from './screen/DeliverySummary';
 import DeliveryEdit from './screen/DeliveryEdit';
 import ProfilePage from './screen/ProfilePage';
 import Orders from './components/Profile/Orders';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
 
 
 function App() {
+
+  const ProtectedRoute = ({ children }) => {
+    const { user } = useContext(AuthContext);
+
+    if (!user) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  };
+
   return (
     <Router>
       <div className="App">
         <Routes>
-            <Route path='/' element={<HomePage/>}/>
+            <Route path='/' element={<ProtectedRoute><HomePage/></ProtectedRoute>}/>
             <Route path='/product' element={<ProductPage/>}/>
             <Route path='/blog' element={<BlogPage/>}/>
             <Route path='/singleBlog/:id' element={<SingleBlogPage/>}/>

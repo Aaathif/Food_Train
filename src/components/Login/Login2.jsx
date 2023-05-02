@@ -16,11 +16,12 @@ function Login2({ Data }) {
       const response = await axios.post('http://localhost:8000/api/customers/login', formState)
       console.log(response.data)   
       alert('Logged in Successfully');
+      navigate("/")
     } catch (error) {
       console.error(error)
       alert('Failed to Log in');
     }
-    navigate("")
+    // navigate("")
   };
 
   return (
