@@ -14,9 +14,7 @@ function Display3() {
        <input type='text' className={css.add1}  placeholder='11, Moragasmulla rd, Rajagiriya' />
        <input type='text' className={css.add2}  placeholder='Business or building name' />
        <input type='text' className={css.add2}  placeholder='Street number and name' />
-       <input type='text' className={css.add2}  placeholder='Area / District' />
-       <input type='text' className={css.add2}  placeholder='Landmark' />
-       <input type='text' className={css.add2}  placeholder='Phone Number' />
+
        <button type='submit' className={css.btn}>Save</button>
        <button type='submit' className={css.btn1}>Remove</button>
       </form>

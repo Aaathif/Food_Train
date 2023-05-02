@@ -70,11 +70,14 @@ form>input {
     height: 10%;
     margin: 15px;
     margin-bottom: 0px;
-    border: 1px solid black;
-    background-color: transparent;
-    text-align: left;
+    border: none;
+    /* border: 1px solid black; */
+    /* background-color: red; */
+    text-align: center;
     text-indent: 25px;
     font-size: 15px;
+    color: white;
+    font-weight: bold;
 }
 
 /* .icon{
