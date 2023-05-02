@@ -23,6 +23,11 @@ import NewEvent from "./pages/Adding Page/newEvent/NewEvent";
 import UpdateEvent from "./pages/UpdatePages/UpdateEvent/UpdateEvent";
 import NewDelivery from "./pages/Adding Page/newDelivery/NewDelivery";
 import UpdateDelivery from "./pages/UpdatePages/UpdateDelivery/UpdateDelivery";
+import Profile from './employee/pages/home/Profile';
+import Attendance from './employee/pages/attandence/Attendance'
+import Leave from './employee/pages/leave/Leave'
+import PayrollSlip from './employee/pages/payroll slip/PayrollSlip'
+
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -352,6 +357,10 @@ function App() {
                 }
               />
             </Route>
+            <Route path='/profile' element={<Profile/>} />
+            <Route path='/attendance' element={<Attendance/>} />
+            <Route path='/leave' element={<Leave/>} />
+            <Route path='/payrollslip' element={<PayrollSlip/>} />
 
           </Route>
         </Routes>
