@@ -21,6 +21,7 @@ import ProfilePage from './screen/ProfilePage';
 import Orders from './components/Profile/Orders';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+import StripePaymentPage from './screen/StripePaymentPage';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
             <Route path='/deliverySummary' element={<DeliverySummary/>}/>
             <Route path='/profile' element={<ProfilePage/>} /> 
             <Route path="/orders" element={<Orders />}/>
+            <Route path="/stripe" element={<StripePaymentPage />}/>
         </Routes>
       </div>
     </Router>
