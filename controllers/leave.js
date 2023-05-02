@@ -13,12 +13,12 @@ export const createLeave = async (req, res, next) => {
 
 export const getLeave = async (req, res, next) => { 
     try {
-        const Leave = await Leave.findById(
+        const getLeave = await Leave.findById(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json(Leave)
+        res.status(200).json(getLeave)
     } catch (err) {
         next(err)
     }
@@ -27,8 +27,8 @@ export const getLeave = async (req, res, next) => {
 //GET All MenuList
 export const getLeaves = async (req, res, next) => { 
     try {
-        const Leaves = await Leaves.find()
-        res.status(200).json(Leaves)
+        const getLeaves = await Leave.find()
+        res.status(200).json(getLeaves)
     } catch (err) {
         next(err)
     }
@@ -36,7 +36,7 @@ export const getLeaves = async (req, res, next) => {
 
 export const updateLeave = async (req,res,next)=>{
     try {
-      const updatedLeave = await User.findByIdAndUpdate(
+      const updatedLeave = await Leave.findByIdAndUpdate(
         req.params.id,
         { $set: req.body },
         { new: true }
@@ -48,7 +48,7 @@ export const updateLeave = async (req,res,next)=>{
   }
   export const deleteLeave = async (req,res,next)=>{
     try {
-      await User.findByIdAndDelete(req.params.id);
+      await Leave.findByIdAndDelete(req.params.id);
       res.status(200).json("User has been deleted.");
     } catch (err) {
       next(err);

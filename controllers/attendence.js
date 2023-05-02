@@ -14,12 +14,12 @@ export const createAttendance = async (req, res, next) => {
 //GET MenuList with ID
 export const getAttendance = async (req, res, next) => { 
     try {
-        const Attendance = await Attendance.findById(
+        const getAttendance = await Attendance.findById(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json(Attendance)
+        res.status(200).json(getAttendance)
     } catch (err) {
         next(err)
     }
@@ -28,8 +28,8 @@ export const getAttendance = async (req, res, next) => {
 //GET All MenuList
 export const getAttendances = async (req, res, next) => { 
     try {
-        const Attendances = await Attendances.find()
-        res.status(200).json(Attendances)
+        const getAttendances = await Attendance.find()
+        res.status(200).json(getAttendances)
     } catch (err) {
         next(err)
     }

@@ -15,6 +15,8 @@ import CustomersRoute from "./routes/customers.js";
 // import stripeRoute from "./routes/stripe.js";
 import DeliveryRoute from "./routes/deliveries.js"
 import FeedbacksRoute from "./routes/feedbacks.js"
+import AttendancesRoute from "./routes/attendances.js"
+import LeavesRoute from "./routes/leaves.js"
 
 
 import cookieParser from "cookie-parser";
@@ -67,6 +69,9 @@ app.use("/api/contacts", ContactsRoute);
 app.use("/api/customers", CustomersRoute);
 app.use("/api/delivery", DeliveryRoute);
 app.use("/api/feedback", FeedbacksRoute);
+app.use("/api/attendance", AttendancesRoute);
+app.use("/api/leave", LeavesRoute);
+
 
 // app.use("/api/checkout", stripeRoute);
 
