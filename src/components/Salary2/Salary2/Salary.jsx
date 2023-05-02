@@ -23,15 +23,18 @@ function Salary({Data}) {
     var [EPF, setEPF]=useState();
     var [ETF, setETF]=useState();
 
+    console.log()
+
     function Calculation()
     {
-        EPF= salary* 8/100;
-        ETF= salary* 3/100;
+        EPF= info.basicSalary* 8/100;
+        ETF= info.basicSalary* 3/100;
 
-        SalT=salary-(-meal)-(-transport)-(-medical)-insurance-EPF-ETF;
-        
+        SalT=info.basicSalary-(-info.mealAllowance)-(-info.transportationAllowance)-(-info.medicalAllowance)-info.retirementInsurance-EPF-ETF;
+        // SalT=info.basicSalary-(-info.mealAllowance)-(-info.transportationAllowance)-(-info.medicalAllowance)-info.retirementInsurance;
+        console.log("hello"+SalT)
         /* alert("Salary is "+salary); */
-        if(SalT>100000){
+        if(SalT>100){
             Tax=SalT* 6/100;
         }
       
@@ -41,8 +44,8 @@ function Salary({Data}) {
 
        
 
-         TtlEarn= salary-(-meal)-(-transport)-(-medical);
-         TtlRed = insurance-(-Tax)-(-EPF)-(-ETF) ; 
+         TtlEarn= info.basicSalary-(-info.mealAllowance)-(-info.transportationAllowance)-(-info.medicalAllowance);
+         TtlRed = info.retirementInsurance-(-Tax)-(-EPF)-(-ETF) ; 
 
         setTax(Tax);
         setEPF(EPF);
@@ -82,6 +85,9 @@ function Salary({Data}) {
         try {
           const newPayroll = {
             ...info,
+            Tax,
+            EPF,
+            ETF,
           };
           await axios.post("http://localhost:8000/api/payroll", newPayroll)
         } catch (err) {
@@ -95,7 +101,7 @@ function Salary({Data}) {
              <h2>{Data.TextP1}</h2>
              <h5>{Data.TextP2}</h5>
         </div>
-
+        
         <div className={`${css.row} ${css.sah}`} style={{display:'flex'}}>
             <div className={css.col} style={{flex:1 } }>
                 
@@ -152,7 +158,7 @@ function Salary({Data}) {
 
 
         </div>
-
+        {info.basicSalary}
         <div className={`${css.row} ${css.sah} ${css.saals}`} style={{display:'flex' , height:'350px'}  }>
         <div className={css.col} /* style={{flex:1.8}} */>
 
@@ -285,9 +291,12 @@ function Salary({Data}) {
 
         <div className='align'  style={{   marginTop:'10px' , marginLeft:'10px', marginBottom:'0px' }}  >
             {/* calculate */}
-        <button type="submit" onClick={handleClick} className="btn" style={{ padding: '0px 20px 0px 20px', height:'30px',width:'100px',backgroundColor: '#AC9B7E', color: '#000000', border: '1px solid black', borderRadius: '10px 10px 10px 10px', 
+        <button type="submit" onClick={Calculation} className="btn" style={{ padding: '0px 20px 0px 20px', height:'30px',width:'100px',backgroundColor: '#AC9B7E', color: '#000000', border: '1px solid black', borderRadius: '10px 10px 10px 10px', 
             fontSize: '16px', marginTop: '0px', cursor: 'pointer'}}>{Data.TextP24}</button>
+        <button type="submit" onClick={handleClick} className="btn" style={{ padding: '0px 20px 0px 20px', height:'30px',width:'100px',backgroundColor: '#AC9B7E', color: '#000000', border: '1px solid black', borderRadius: '10px 10px 10px 10px', 
+            fontSize: '16px', marginTop: '0px', cursor: 'pointer'}}>Send</button>
         </div>  
+        
 
         </div>
            {/*  <div className={css.col} style={{flex:1}}>
@@ -302,32 +311,30 @@ function Salary({Data}) {
          <div className={` ${css.sah} ${css.saals}`} style={{display:'flex'}}>
             <div className={css.col} style={{flex:1}}>
 
-            <div className='align' style={{ display: 'flex',  gap: '150px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
+            {/* <div className='align' style={{ display: 'flex',  gap: '150px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP33}</h4>
                 <input type="text" class="form-control" placeholder={Data.TextP37} 
-                /* value={selectedDate}
-                onChange={(date) => setSelectedDate(date)}>
-                <DatePicker
-                 selected={selectedDate}
-                 onChange={(date) => setSelectedDate(date)} */
+                 value={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+              
                 /> 
                 
-            </div>
+            </div> */}
 
-            <div className='align' style={{ display: 'flex',  gap: '168px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
+            {/* <div className='align' style={{ display: 'flex',  gap: '168px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP34}</h4>
                 <input type="text" class="form-control" placeholder={Data.TextP38}/>
-            </div>
+            </div> */}
 
-            <div className='align' style={{ display: 'flex',  gap: '110px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
+            {/* <div className='align' style={{ display: 'flex',  gap: '110px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP35}</h4>
                 <input type="text" class="form-control" placeholder={Data.TextP39}/>
-            </div>
+            </div> */}
 
-            <div className='align' style={{ display: 'flex',  gap: '142px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
+            {/* <div className='align' style={{ display: 'flex',  gap: '142px' , marginTop:'25px' , marginLeft:'10px', marginBottom:'10px'}}>
                 <h4>{Data.TextP36}</h4>
                 <input type="text" class="form-control" placeholder={Data.TextP40}/>
-            </div>
+            </div> */}
             </div>
             <div className={css.col} style={{flex:1}}>
 
