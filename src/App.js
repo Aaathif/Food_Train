@@ -9,7 +9,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, contactColumns, customerColumns } from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, contactColumns, customerColumns, AttendanceColumns, leaveColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
@@ -389,7 +389,82 @@ function App() {
               />
             </Route>
 
-            {/* -----------------------------Customer ---------------------------------------- */}
+            {/* -----------------------------Attendance ---------------------------------------- */}
+
+            <Route path="attendance">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={AttendanceColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+
+            {/* -----------------------------leave ---------------------------------------- */}
+
+            <Route path="leave">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={leaveColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------leave ---------------------------------------- */}
 
             <Route path="customers">
               <Route
@@ -425,6 +500,47 @@ function App() {
                 }
               />
             </Route>
+
+            {/* -----------------------------contacts ---------------------------------------- */}
+
+            <Route path="contacts">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={contactColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+
+
+
 
 
             <Route path='/profile' element={<Profile/>} />

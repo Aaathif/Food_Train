@@ -439,3 +439,72 @@ export const customerColumns = [
     width: 150,
   },
 ]
+
+{/*------------------------ AttendanceColumns --------------------------*/}
+export const AttendanceColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "name",
+    width: 300,
+  },
+  {
+    field: "position",
+    headerName: "position",
+    width: 150,
+  },
+  {
+    field: "employeeID",
+    headerName: "employeeID",
+    width: 150,
+  },
+]
+
+{/*------------------------ leaveColumns --------------------------*/}
+
+export const leaveColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 300,
+  },
+  {
+    field: "position",
+    headerName: "Position",
+    width: 150,
+  },
+  {
+    field: "employeeID",
+    headerName: "Employee ID",
+    width: 150,
+  },
+  {
+    field: "stratingDate",
+    headerName: "Strating Date",
+    width: 150,
+  },
+  {
+    field: "endingDate",
+    headerName: "Ending Date",
+    width: 150,
+  },
+  {
+    field: "leave",
+    headerName: "Leave",
+    width: 150,
+  },
+  {
+    field: "reason",
+    headerName: "Reason",
+    width: 150,
+  },
+]
