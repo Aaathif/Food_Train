@@ -7,7 +7,7 @@ router.post("/", createDelivery)
 
 router.get("/", getDeliveries)
 
-router.get("/:id", getDeliveries)
+router.get("/find/:id", getDelivery)
 
 router.delete("/:id", deleteDelivery)
 

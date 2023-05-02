@@ -33,3 +33,14 @@ export const verifyAdmin = (req, res, next) => {
     }
   });
 };
+
+export const verifyEmployee = (req, res, next) => {
+  verifyToken(req, res, next, () => {
+    if (req.user.isEmployee) {
+      next();
+    } else {
+      return next(createError(403, "You are not authorized! Employee"));
+    }
+  });
+};
+
