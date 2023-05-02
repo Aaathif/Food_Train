@@ -5,22 +5,22 @@ const {Schema} = mongoose
 const PaymentSchema = new mongoose.Schema({
     cardNo: {
         type: String,
-        required: true,
+        // required: true,
     },
     cardholderName: {
         type: String,
-        required: true, 
+        // required: true, 
     },
     expMonth: {
         type: String,
     },
     expYear: {
         type: String,
-        required: true,
+        // required: true,
     },
     cvv: {
         type: String,
-        required: true,
+        // required: true,
     },
     // featured: {
     //     type: Boolean,
