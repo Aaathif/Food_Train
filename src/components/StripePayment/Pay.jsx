@@ -35,6 +35,10 @@ const Pay = () => {
 
     }, [stripeToke]);
 
+    const [data, setData] = useState([])
+
+    
+
     return (
 
         <div
@@ -69,7 +73,7 @@ const Pay = () => {
 
 
                 >pay Now
-
+                
                 </button>
             </StripeCheckout>
         </div>

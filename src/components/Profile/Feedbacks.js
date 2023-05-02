@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import FeedbackForm from './Form/FeedbackForm'
+import FeedbackForm2 from './Form/FeedbackForm2'
 import Modal from 'react-modal'
 import {data} from './Form/Data'
 import CustomerDetails from './CustomerDetails.module.css'
@@ -36,7 +36,7 @@ function Feedbacks() {
             X
           </button>
 
-        <FeedbackForm closeModal={handleCloseModal}/>
+        <FeedbackForm2 closeModal={handleCloseModal}/>
         </div>
         </Modal>
       </div>
