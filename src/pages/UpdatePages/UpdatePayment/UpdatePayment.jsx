@@ -23,7 +23,9 @@ const UpdatePayment = ({ inputs, title }) => {
     console.log(paymentData)
     try {
       const updatedPayment = await axios.put(`http://localhost:8000/api/payment/${ids}`, paymentData);
-  
+      if(updatedPayment){
+        alert("Your data has been successfully updated")
+      }
       console.log('Updated payment:', updatedPayment.data);
     } catch (err) {
       console.log(err);

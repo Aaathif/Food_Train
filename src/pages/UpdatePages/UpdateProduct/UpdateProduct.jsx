@@ -4,10 +4,12 @@ import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import { useState } from "react";
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams, useNavigate } from 'react-router-dom'
 
 
 const UpdateProduct = ({ inputs, title }) => {
+
+    const navigate = useNavigate();
 
     const [productData, setProductData] = useState({})
 
@@ -19,6 +21,8 @@ const UpdateProduct = ({ inputs, title }) => {
     console.log(location)
     const ids = location.pathname.split("/")[3]
     console.log(ids)
+
+    
 
 
     const updateProduct = async () => {
@@ -45,7 +49,9 @@ const UpdateProduct = ({ inputs, title }) => {
             }
 
             const updateProduct = await axios.put(`http://localhost:8000/api/product/${ids}`, newProduct);
-
+            if(updateProduct){
+                alert("Your data has been successfully updated")
+              }
             console.log('Updated product:', updateProduct.data);
         } catch (err) {
             console.log(err);

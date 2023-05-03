@@ -23,7 +23,9 @@ const UpdateBlog = ({ inputs, title }) => {
     console.log(blogData)
     try {
       const updatedBlog = await axios.put(`http://localhost:8000/api/blog/${ids}`, blogData);
-  
+      if(updatedBlog){
+        alert("Your data has been successfully updated")
+      }
       console.log('Updated Blog:', updatedBlog.data);
     } catch (err) {
       console.log(err);

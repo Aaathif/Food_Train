@@ -23,7 +23,9 @@ const UpdatePayroll = ({ inputs, title }) => {
     console.log(payrollData)
     try {
       const updatePayroll = await axios.put(`http://localhost:8000/api/payroll/${ids}`, payrollData);
-  
+      if(updatePayroll){
+        alert("Your data has been successfully updated")
+      }
       console.log('Updated payroll:', updatePayroll.data);
     } catch (err) {
       console.log(err);

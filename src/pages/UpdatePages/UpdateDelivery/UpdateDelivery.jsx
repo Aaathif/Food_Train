@@ -23,7 +23,9 @@ const UpdateDelivery = ({ inputs, title }) => {
     console.log(deliveryData)
     try {
       const updatedDelivery = await axios.put(`http://localhost:8000/api/delivery/${ids}`, deliveryData);
-  
+      if(updatedDelivery){
+        alert("Your data has been successfully updated")
+      }
       console.log('Updated Blog:', updatedDelivery.data);
     } catch (err) {
       console.log(err);

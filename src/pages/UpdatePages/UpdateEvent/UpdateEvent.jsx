@@ -23,7 +23,9 @@ const UpdateEvent = ({ inputs, title }) => {
     console.log(eventData)
     try {
       const updatedEvent = await axios.put(`http://localhost:8000/api/event/${ids}`, eventData);
-  
+      if(updatedEvent){
+        alert("Your data has been successfully updated")
+      }
       console.log('Updated EventData:', updatedEvent.data);
     } catch (err) {
       console.log(err);
