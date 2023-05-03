@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import styles from './DeliveryPage.module.css';
+import useFetch from '../../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
 function DeliveryPage2(props) {
+
+    const { data, loading, error } = useFetch("http://localhost:8000/api/delivery/find/64514fb1aa52a02d133c48c5");
+
     const {
         address,
         phoneNumber,
@@ -16,15 +21,18 @@ function DeliveryPage2(props) {
         <form className={styles.container}>
         <div className={styles.section} style={{textIndent:`10px`}}>
         <h2 className={styles.sectionTitle} style={{textAlign:`center`, fontSize:`40px`, margin:`50px`,color:`#C52722`}}>Order Summary</h2>
-        <p>Delivery Address: {address}</p>
-        <p>Phone Number: {phoneNumber}</p>
-        <p>Payment Method : {paymentMethod}</p>
+        <p>Delivery Address: {data.address}</p>
+        <p>Phone Number: {data.phoneNo}</p>
+        <p>City : {data.city}</p>
         <hr />
-        <p>Cost : {cost}</p>
-        <p>Delivery Charge : {deliveryCharge}</p>
-        <p>Total Cost: {totalCost}</p>
+        <p>Cost : {cost}2000</p>
+        <p>Delivery Charge : {deliveryCharge}100</p>
+        <p>Total Cost: {totalCost}2100</p>
         </div>
         <button type="submit" className={styles.button0} style={{width:`200px`}}>Confirm</button>
+        <Link to='/deliveryEdit'>
+        <button type="submit"  style={{width:`200px`, marginTop: "200px"}}>Edit</button>
+        </Link>
         </form>  
         </div>
       );
