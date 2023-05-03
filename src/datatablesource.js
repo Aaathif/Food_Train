@@ -396,49 +396,6 @@ export const contactColumns = [
   },
 ]
 
-{/*------------------------ customerColumns --------------------------*/}
-export const customerColumns = [
-  {
-    field: "_id",
-    headerName: "ID",
-    width: 70,
-  },
-  {
-    field: "username",
-    headerName: "User Name",
-    width: 300,
-  },
-  {
-    field: "email",
-    headerName: "Email",
-    width: 150,
-  },
-  {
-    field: "firstName",
-    headerName: "FirstName",
-    width: 150,
-  },
-  {
-    field: "lastName",
-    headerName: "LastName",
-    width: 150,
-  },
-  {
-    field: "contactNo",
-    headerName: "ContactNo",
-    width: 150,
-  },
-  {
-    field: "address",
-    headerName: "Address",
-    width: 150,
-  },
-  {
-    field: "dateOfBirth",
-    headerName: "Date Of Birth",
-    width: 150,
-  },
-]
 
 {/*------------------------ AttendanceColumns --------------------------*/}
 export const AttendanceColumns = [
@@ -508,3 +465,51 @@ export const leaveColumns = [
     width: 150,
   },
 ]
+
+
+{/*------------------------ cusColumns --------------------------*/}
+
+export const cusColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "username",
+    headerName: "Username",
+    width: 100,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
+  },
+  {
+    field: "firstName",
+    headerName: "FirstName",
+    width: 100,
+  },
+  {
+    field: "lastName",
+    headerName: "lastName",
+    width: 100,
+  },
+  {
+    field: "contactNo",
+    headerName: "ContactNo",
+    width: 100,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 100,
+  },
+  {
+    field: "dateOfBirth",
+    headerName: "DateOfBirth",
+    width: 100,
+  },
+]
+
+

@@ -9,7 +9,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, contactColumns, customerColumns, AttendanceColumns, leaveColumns } from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns, PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, contactColumns, customerColumns, AttendanceColumns, leaveColumns, cusColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
@@ -464,14 +464,14 @@ function App() {
               />
             </Route>
 
-            {/* -----------------------------leave ---------------------------------------- */}
+            {/* -----------------------------customer ---------------------------------------- */}
 
             <Route path="customers">
               <Route
                 index
                 element={
                   <ProtectedRoute>
-                    <List columns={customerColumns} />
+                    <List columns={cusColumns} />
                   </ProtectedRoute>
                 }
               />
