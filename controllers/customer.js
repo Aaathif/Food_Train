@@ -60,3 +60,23 @@ export const login = async (req, res) => {
     }
 }
 
+
+export const getCustomer = async (req, res, next) => {
+    try {
+        const contacts = await Customer.find()
+        res.status(200).json(contacts)
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const deleteCustomer = async (req, res, next) => {
+    try {
+        await Customer.findByIdAndDelete(
+            req.params.id
+        )
+        res.status(200).json("Contact has been deleted")
+    } catch (error) {
+        next(error)
+    }
+}
