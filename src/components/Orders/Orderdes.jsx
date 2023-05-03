@@ -1,6 +1,7 @@
 import React from 'react'
 import css from './Orders.module.css'
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom';
 
 
 function Orderdes({Orderdata}) {
@@ -96,7 +97,9 @@ function Orderdes({Orderdata}) {
                   <p className={css.text2}>{Orderdata.ship}</p>
                   <br/>
                   <p className={css.text3}>{Orderdata.total}</p>
+                  <Link to='/payment'>
                   <button className={css.btn2}>{Orderdata.checkout}</button>
+                  </Link>
 
                 </div>
             </div>

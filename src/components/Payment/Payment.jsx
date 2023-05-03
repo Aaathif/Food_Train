@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Payment.module.css';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 function Payment() {
   const [paymentMethod, setPaymentMethod] = React.useState('visa');
@@ -117,6 +118,9 @@ function Payment() {
         </div>
 
         <button type="submit" onClick={handleClick}>Submit Payment</button>
+        <Link to='/delivery'>
+          <button type="submit" style={{marginTop: "20px"}}>Continue</button>
+        </Link>
       </form>
     </div>
   );

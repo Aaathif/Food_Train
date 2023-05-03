@@ -41,10 +41,14 @@ function Display2() {
 
               <input type='text' name="phoneNo" placeholder='Enter Phone Number' className={css.num} onChange={handleChange}/>
            
-            <Link to={{pathname:`/deliveryEdit/`}}>
+            {/* <Link to={{pathname:`/deliveryEdit/`}}>
               <button className={css.button} style={{backgroundColor: "#C52726", width:'93%', height: '10%'}}>Edit</button>
-            </Link>
+            </Link> */}
               <button type="submit" className={css.button} style={{backgroundColor: "#67108F"}}>Continue</button> 
+              <Link to='/deliverySummary' style={{height: "100%", marginTop: "20px"}}>
+                <button type="submit" style={{backgroundColor: "#67108F"}}>Continue</button> 
+              </Link>
+
             </form>
         </div>
       </div>

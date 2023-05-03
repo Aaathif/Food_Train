@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import css from './SingleProduct.module.css'
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 
 function SingleProduct() {
@@ -53,7 +53,8 @@ function SingleProduct() {
                 <h3 style={{color: "gray"}}>Price: {price}</h3>
                 <h3>Totol Amount: {priceQty}</h3>
                 <input type="number" name="" id="" min={1} value={qty} onChange={(e)=>{setQty(e.target.value)}} />
-                <button>Add to cart</button>
+                <Link to='/cart'>
+                <button>Add to cart</button></Link>
                 <h4>{data.description}</h4>
                 <span>{data.description}!. Get the best Results for Resume Writers Denver. Find what you are looking for! 99% Match on Resume Writers Denver. Find Here - Free, Private and Secure. The Best Resources. Always Facts. Unlimited Access. Results & Answers. Privacy Friendly. Grammarly Helps You Eliminate Errors And Find The Perfect Words To Express Yourself. Find and Add Sources Fast. Fix Punctuation Errors. AI Writing Assistant. Eliminate Grammar Errors. Improve Word Choice. Easily Improve Any Text. </span>
             </div>
