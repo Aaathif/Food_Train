@@ -42,12 +42,12 @@ export const deleteEvent = async (req, res, next) => {
 //GET Produt with ID
 export const getEvent = async (req, res, next) => { 
     try {
-        const Event = await Event.findById(
+        const Evn = await Event.findById(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json(Event)
+        res.status(200).json(Evn)
     } catch (err) {
         next(err)
     }
