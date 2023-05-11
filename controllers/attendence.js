@@ -25,6 +25,20 @@ export const getAttendance = async (req, res, next) => {
     }
 }
 
+//GET MenuList with ID
+export const getDelete= async (req, res, next) => { 
+    try {
+        const getAttendance = await Attendance.findByIdAndDelete(
+            req.params.id, 
+            // { $set: req.body},
+            // {new:true}
+        )
+        res.status(200).json("delete")
+    } catch (err) {
+        next(err)
+    }
+}
+
 //GET All MenuList
 export const getAttendances = async (req, res, next) => { 
     try {
