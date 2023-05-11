@@ -57,10 +57,6 @@ const UpdateMenuList = ({ inputs, title }) => {
     }
   };
 
-  // const update = () => {
-  //   alert("Update sucessful")
-  // }
-
   const handleChange = (e) => {
     setMenuListData({ ...MenuListData, [e.target.id]: e.target.value });
   };
@@ -88,6 +84,7 @@ const UpdateMenuList = ({ inputs, title }) => {
                     onChange={handleChange}
                     type={input.type}
                     placeholder={input.placeholder}
+                    defaultValue={input.value}
                     id={input.id}
                   />
                 </div>

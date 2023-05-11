@@ -24,10 +24,11 @@ import UpdateEvent from "./pages/UpdatePages/UpdateEvent/UpdateEvent";
 import NewDelivery from "./pages/Adding Page/newDelivery/NewDelivery";
 import UpdateDelivery from "./pages/UpdatePages/UpdateDelivery/UpdateDelivery";
 import Profile from './employee/pages/home/Profile';
-import Attendance from './employee/pages/attandence/Attendance'
+
 import Leave from './employee/pages/leave/Leave'
 import PayrollSlip from './employee/pages/payroll slip/PayrollSlip'
 import SalaryMain from "./components/Salary2/SalaryMain";
+import Attendance2 from "./employee/pages/attandence/Attendance2";
 
 
 function App() {
@@ -544,8 +545,8 @@ function App() {
 
 
             <Route path='/profile' element={<Profile/>} />
-            <Route path='/attendance' element={<Attendance/>} />
-            <Route path='/leave' element={<Leave/>} />
+            <Route path='/attendance2' element={<Attendance2/>} />
+            <Route path='/leaves' element={<Leave/>} />
             <Route path='/payrollslip' element={<PayrollSlip/>} />
 
           </Route>

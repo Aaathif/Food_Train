@@ -22,10 +22,10 @@ const navLinkStyles = ({isActive}) =>{
           <NavLink to="/profile" style={navLinkStyles}  >
             <li><PersonIcon sx={{ fontSize: 30 }} />  PROFILE</li>
           </NavLink>
-          <NavLink to ="/attendance" style={navLinkStyles}>
+          <NavLink to ="/attendance2" style={navLinkStyles}>
             <li><HowToRegIcon sx={{ fontSize: 30 }}/>ATTENDANCE</li>
           </NavLink>
-          <NavLink to="/leave" style={navLinkStyles}>
+          <NavLink to="/leaves" style={navLinkStyles}>
             <li><DirectionsWalkIcon sx={{ fontSize: 30 }}/> APPLY LEAVE</li>
           </NavLink>
           <NavLink to="/payrollslip" style={navLinkStyles}>

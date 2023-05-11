@@ -55,6 +55,9 @@ function Leave() {
     try {
       const response = await axios.post('http://localhost:8000/api/leave/', details);
       console.log('Response:', response.data);
+      if(response){
+        alert("Data Sucessful")
+      }
       setSubmittedData(response.data);
     } catch (error) {
       console.log('Error:', error.message);

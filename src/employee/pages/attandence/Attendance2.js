@@ -5,7 +5,7 @@ import Css from './Attendance.module.css'
 import axiox from 'axios'
 // import { error } from 'console'
 
-function Attendance() {
+function Attendance2() {
   const [data, setData ] = useState({name: "", position: "", employeeID: ""})
   // const [position, setPosition ] = useState("")
   // const [employeeID, setEmployeeID ] = useState("")
@@ -129,4 +129,4 @@ function Attendance() {
     </div>
   )     
   }
-export default Attendance
+export default Attendance2
