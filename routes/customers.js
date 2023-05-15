@@ -4,7 +4,7 @@ import { register, login, getCustomer, deleteCustomer } from '../controllers/cus
 const router = express.Router();
 
 //Create a new Customer
-router.post('/',register)
+router.post('/register',register)
 router.post('/login', login)
 router.get('/', getCustomer)
 router.delete('/:id', deleteCustomer)
