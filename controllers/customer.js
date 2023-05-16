@@ -52,7 +52,7 @@ export const login = async (req, res) => {
         if(!isMatch){
             return res.status(400).json({ message: 'Invalid Credentials'})
         }
-        res.status(200).json({ message: 'Login Successful'})
+        res.status(200).json({ message: 'Login Successful asiff'})
 
     }catch (err){
         console.error(err);

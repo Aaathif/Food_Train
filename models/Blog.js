@@ -3,23 +3,23 @@ import mongoose from "mongoose";
 const BlogSchema = new mongoose.Schema({
     TextH: {
         type: String,
-        required: true,
+        // required: true,
     },
     TextP: {
         type: String,
-        required: true, 
+        // required: true, 
     },
     img: {
         type: String,
-        required: true,
+        // required: true,
     },
     Btn: {
         type: String,
-        required: true,
+        // required: true,
     },
     textFull: {
         type: String,
-        required: true,
+        // required: true,
     },
 })
 
