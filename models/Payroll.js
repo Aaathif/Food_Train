@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 
 
 const PayrollSchema = new mongoose.Schema({
+    employeeId: {
+        type: String,
+    },
     basicSalary: {
         type: String,
         // required: true,
@@ -21,7 +24,7 @@ const PayrollSchema = new mongoose.Schema({
         type: String,
         // required: true,
     },
-    tax: {
+    Tax: {
         type: String,
         // required: true,
     },

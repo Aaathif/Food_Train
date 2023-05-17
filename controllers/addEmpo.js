@@ -15,12 +15,12 @@ export const createAddEmpo = async (req, res, next) => {
 
 export const getAddEmpo = async (req, res, next) => { 
     try {
-        const getAddEmpo = await AddEmpo.findById(
+        const Empo = await AddEmpo.findById(
             req.params.id, 
             // { $set: req.body},
             // {new:true}
         )
-        res.status(200).json(getAddEmpo)
+        res.status(200).json(Empo)
     } catch (err) {
         next(err)
     }

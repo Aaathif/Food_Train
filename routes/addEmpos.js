@@ -7,7 +7,7 @@ router.post('/', createAddEmpo)
 
  router.get('/', getAddEmpos)
 
-router.get('/:id', getAddEmpo)
+router.get('/find/:id', getAddEmpo)
 
 router.delete("/:id", deleteAddEmpo)
 

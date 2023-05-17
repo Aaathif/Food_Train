@@ -12,16 +12,20 @@ import PaymentsRoute from "./routes/payments.js";
 import PayrollsRoute from "./routes/payrolls.js";
 import ContactsRoute from "./routes/contacts.js";
 import CustomersRoute from "./routes/customers.js";
-// import stripeRoute from "./routes/stripe.js";
 import DeliveryRoute from "./routes/deliveries.js"
 import FeedbacksRoute from "./routes/feedbacks.js"
 import AttendancesRoute from "./routes/attendances.js"
 import LeavesRoute from "./routes/leaves.js"
 import AddEmpoRoute from "./routes/addEmpos.js"
 
+import stripeRoute from "./routes/stripes.js"
+// const stripeRoute = require("./routes/stripes")
+
+
 
 import cookieParser from "cookie-parser";
 import cors from "cors";
+
 
 const app = express()
 dotenv.config()
@@ -75,7 +79,7 @@ app.use("/api/leave", LeavesRoute);
 app.use("/api/addEmpo", AddEmpoRoute);
 
 
-// app.use("/api/checkout", stripeRoute);
+app.use("/api/checkout", stripeRoute);
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500
