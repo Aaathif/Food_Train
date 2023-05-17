@@ -1,9 +1,15 @@
-const router = require("express").Router();
-const dotenv = require("dotenv");
-const { MongoClient } = require('mongodb');
+// const router = require("express").Router();
+// const dotenv = require("dotenv");
+// const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb'
+import stripePackage from 'stripe';
+import dotenv from "dotenv"
+import express from 'express'
+
+const router = express.Router();
 
 dotenv.config();
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+const stripe = stripePackage(process.env.STRIPE_KEY);
 
 // MongoDB connection setup
 const uri = process.env.MONGO;
@@ -20,7 +26,7 @@ const client = new MongoClient(uri);
 
 //---------------------
 
-router.post("/payment", (req, res) => {
+router.post("/stripe", (req, res) => {
   stripe.charges.create(
     {
       source: req.body.tokenId,

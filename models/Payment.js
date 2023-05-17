@@ -7,6 +7,10 @@ const PaymentSchema = new mongoose.Schema({
         type: String,
         // required: true,
     },
+    email: {
+        type: String,
+        // required: true, 
+    },
     cardholderName: {
         type: String,
         // required: true, 

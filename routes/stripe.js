@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
-router.post("/payment",(req,res)=>{
+router.post("/hello",(req,res)=>{
 
 stripe.charges.create({
 
@@ -22,4 +22,5 @@ stripe.charges.create({
 
 });
 
-module.exports=router;
+// module.exports=router;
+export default router

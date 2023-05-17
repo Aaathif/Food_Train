@@ -19,7 +19,7 @@ import LeavesRoute from "./routes/leaves.js"
 import AddEmpoRoute from "./routes/addEmpos.js"
 
 import stripeRoute from "./routes/stripes.js"
-// const stripeRoute = require("./routes/stripes")
+// const stripeRoute = require("./routes/stripe")
 
 
 
