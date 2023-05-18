@@ -72,11 +72,50 @@ export const getCustomer = async (req, res, next) => {
 
 export const deleteCustomer = async (req, res, next) => {
     try {
-        await Customer.findByIdAndDelete(
-            req.params.id
-        )
-        res.status(200).json("Contact has been deleted")
+        const email = req.params.email; // Get the email from req.params instead of req.params.id
+
+    await Customer.findOneAndDelete({ email }); // Find and delete the customer by email
+
+    res.status(200).json("Account has been deleted");
     } catch (error) {
         next(error)
     }
 }
+
+export const updateCustomer = async (req, res, next) => {
+    try {
+      const { email } = req.params;
+      const {
+        username,
+        password,
+        firstName,
+        lastName,
+        contactNo,
+        address,
+        dateOfBirth,
+      } = req.body;
+  
+      const updatedCustomer = await Customer.findOneAndUpdate(
+        { email },
+        {
+          username,
+          password,
+          firstName,
+          lastName,
+          contactNo,
+          address,
+          dateOfBirth,
+        },
+        { new: true } // Return the updated customer as the response
+      );
+  
+      if (!updatedCustomer) {
+        return res.status(404).json({ message: 'Customer not found' });
+      }
+  
+      res.status(200).json(updatedCustomer);
+    } catch (error) {
+      next(error);
+    }
+  };
+  

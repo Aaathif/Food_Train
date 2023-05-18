@@ -1,5 +1,5 @@
 import express from 'express';
-import { register, login, getCustomer, deleteCustomer } from '../controllers/customer.js';
+import { register, login, getCustomer, deleteCustomer, updateCustomer } from '../controllers/customer.js';
 
 const router = express.Router();
 
@@ -7,6 +7,7 @@ const router = express.Router();
 router.post('/register',register)
 router.post('/login', login)
 router.get('/', getCustomer)
-router.delete('/:id', deleteCustomer)
+router.delete('/:email', deleteCustomer)
+router.put('/:email', updateCustomer); // Add this line
 
 export default router

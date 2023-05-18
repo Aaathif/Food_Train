@@ -30,3 +30,16 @@ export const deleteFeedback = async (req, res, next) => {
         next(error)
     }
 }
+
+export const updateFeedback = async (req, res, next) => {
+    try {
+        const updatedFeedback = await Feedback.findByIdAndUpdate(
+            req.params.id, 
+            { $set: req.body},
+            {new:true}
+        )
+        res.status(200).json(updatedFeedback)
+    } catch (err) {
+        next(err)
+    }
+}
