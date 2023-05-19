@@ -11,14 +11,14 @@ const PaymentSchema = new mongoose.Schema({
         type: String,
         // required: true, 
     },
-    cardholderName: {
-        type: String,
-        // required: true, 
-    },
+    // cardholderName: {
+    //     type: String,
+    //     // required: true, 
+    // },
     expMonth: {
         type: String,
     },
-    expYear: {
+    amount: {
         type: String,
         // required: true,
     },
